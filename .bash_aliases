@@ -54,6 +54,7 @@ alias ordthomp='cd ~/Documents/US18/thompson/project'
 
 alias fs18='cd ~/Documents/FS18'
 alias fs306='cd ~/Documents/FS18/POLS306_FS18'
+alias ubpl850='cd ~/Documents/FS18/UBPL850_FS18'
 
 alias m18='cd ~/Documents/Milford18'
 alias tmp='cd ~/tmp'
