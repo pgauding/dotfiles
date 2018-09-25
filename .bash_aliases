@@ -88,3 +88,4 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup;
               brew doctor'
 alias gitkey='source ~/.ssh/gitkey.sh'
 alias safari='open -a Safari'
+alias libre='open -a libreoffice'
