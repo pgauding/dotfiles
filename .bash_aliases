@@ -62,6 +62,7 @@ alias tmp='cd ~/tmp'
 alias int='cd ~/Documents/Interesting_Papers/'
 alias pirate='cd ~/Documents/Pirated\ Software'
 alias pauljohn='cd ~/Documents/pauljohn_manuscripts'
+alias crmda='cd ~/Documents/FS18/crmda'
 
 ## Applications
 alias weather='ansiweather -l Lawrence,US -u imperial'
