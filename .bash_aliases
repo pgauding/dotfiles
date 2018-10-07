@@ -91,3 +91,4 @@ alias brewup='brew update; brew upgrade; brew prune; brew cleanup;
 alias gitkey='source ~/.ssh/gitkey.sh'
 alias safari='open -a Safari'
 alias libre='open -a libreoffice'
+alias matlab='open -a MATLAB_R2018b'
