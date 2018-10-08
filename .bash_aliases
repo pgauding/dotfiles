@@ -59,6 +59,8 @@ alias ubpl850='cd ~/Documents/FS18/UBPL850_FS18'
 alias m18='cd ~/Documents/Milford18'
 alias tmp='cd ~/tmp'
 
+alias diss='cd ~/Documents/dissertation'
+
 alias int='cd ~/Documents/Interesting_Papers/'
 alias pirate='cd ~/Documents/Pirated\ Software'
 alias pauljohn='cd ~/Documents/pauljohn_manuscripts'
