@@ -67,6 +67,7 @@ alias pauljohn='cd ~/Documents/pauljohn_manuscripts'
 alias crmda='cd ~/Documents/FS18/crmda'
 
 ## Applications
+alias acrobat='open -a "Adobe Acrobat Pro"'
 alias weather='ansiweather -l Lawrence,US -u imperial'
 alias textmate='open -a textmate'
 alias stata='open -a stataic'
