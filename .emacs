@@ -94,15 +94,14 @@
 (require 'stan-mode)
 
 ;; Some python things I use, you may not need
-;;(setq python-shell-interpreter "ipython3")
+(setq python-shell-interpreter "ipython3")
 
-;;(autoload 'python-mode "python-mode" "Python Mode." t)
-;;(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-;;(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+(autoload 'python-mode "python-mode" "Python Mode." t)
+(add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
+(add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
-
-;;(package-initialize)
-;;(elpy-enable)
+(package-initialize)
+(elpy-enable)
 
 (require 'ess-site)
 ;; soft require: no error if package not found
