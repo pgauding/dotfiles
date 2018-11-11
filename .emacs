@@ -24,6 +24,8 @@
  '(package-selected-packages
    (quote
     (stan-snippets stan-mode ace-window grandshell-theme)))
+ '(python-guess-indent nil)
+ '(python-indent 4)
  '(scroll-bar-mode nil)
  '(tool-bar-mode t))
 (custom-set-faces
