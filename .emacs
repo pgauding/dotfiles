@@ -21,7 +21,9 @@
  '(ns-auto-hide-menu-bar nil)
  '(org-babel-load-languages (quote ((emacs-lisp . t) (R . t))))
  '(org-confirm-babel-evaluate nil)
- '(package-selected-packages (quote (ace-window grandshell-theme)))
+ '(package-selected-packages
+   (quote
+    (stan-snippets stan-mode ace-window grandshell-theme)))
  '(scroll-bar-mode nil)
  '(tool-bar-mode t))
 (custom-set-faces
@@ -70,6 +72,16 @@
 ;; M-x package-refresh-contents
 (when (>= emacs-major-version 24)
   (require 'package)
+  (let* ((no-ssl (and (memq system-type '(windows-nt ms-dos))
+                    (not (gnutls-available-p))))
+       (proto (if no-ssl "http" "https")))
+  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
+  (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
+  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (when (< emacs-major-version 24)
+    ;; For important compatibility libraries like cl-lib
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+(package-initialize)
   (package-initialize)
   (add-to-list 'package-archives
 	       '("melpa" . "http://melpa.milkbox.net/packages/") t)
@@ -78,6 +90,8 @@
 (require 'package)
 (add-to-list 'package-archives
              '("elpy" . "http://jorgenschaefer.github.io/packages/"))
+
+(require 'stan-mode)
 
 ;; Some python things I use, you may not need
 ;;(setq python-shell-interpreter "ipython3")
@@ -204,7 +218,7 @@
 (setq scroll-conservatively most-positive-fixnum)
 
 ;; adjust the size of the frames, uncomment this, adjust values
-;;(setq default-frame-alist '((width . 90) (height . 65)))
+(setq default-frame-alist '((width . 90) (height . 65)))
 
 
 ;; Remember password when connected to remote sites via Tramp
