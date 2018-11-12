@@ -1,3 +1,3 @@
-## bash-profile
+## system-files
 
-A repository of bash_profile and related files.
+A repository of system files for safekeeping and easy access.
