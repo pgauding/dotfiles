@@ -23,9 +23,11 @@
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
    (quote
-    (stan-snippets stan-mode ace-window grandshell-theme)))
+    (markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
  '(python-guess-indent nil)
  '(python-indent 4)
+ '(python-indent-guess-indent-offset nil)
+ '(python-indent-offset 4)
  '(scroll-bar-mode nil)
  '(tool-bar-mode t))
 (custom-set-faces
