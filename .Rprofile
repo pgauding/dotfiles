@@ -22,3 +22,14 @@ q <- function(save = "no", ...){
 
 ## OPTIONS
 options(width = 80)
+
+## Set Repositories
+local({
+	 r = getOption("repos")
+	 r["CRAN"] <- "https://rweb.crmda.ku.edu/cran"
+	 r["KRAN"] <- "https://rweb.crmda.ku.edu/kran"
+	 options(repos = r)
+})
+
+## Allow tab-completion in library() and require() calls
+utils::rc.settings(ipck=TRUE)
