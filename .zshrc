@@ -78,6 +78,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
+export PATH="/usr/local/sbin:$PATH"
 export PATH="${PATH}:/Users/patrickgauding/anaconda3/bin"
 export PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/Current/bin"
 
