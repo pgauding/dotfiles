@@ -107,3 +107,4 @@ alias texup='sudo tlmgr update --all'
 alias tor='open -a "Tor Browser"'
 
 alias switchtozsh='chsh -s $(which zsh)'
+alias maps='telnet mapscii.me'
