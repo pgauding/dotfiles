@@ -37,7 +37,7 @@
  ;; If there is more than one, they won't work right.
  '(button ((t nil))))
 
-(load-theme 'wombat)
+(add-hook 'after-init-hook (lambda () (load-theme 'wombat t)))
 (setq ring-bell-function 'ignore)
 
 (global-set-key (kbd "M-p") 'ace-window)
