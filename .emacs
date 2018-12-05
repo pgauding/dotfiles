@@ -37,7 +37,7 @@
  ;; If there is more than one, they won't work right.
  '(button ((t nil))))
 
-
+(load-theme 'wombat)
 (setq ring-bell-function 'ignore)
 
 (global-set-key (kbd "M-p") 'ace-window)
