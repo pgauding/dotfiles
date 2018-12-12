@@ -111,3 +111,4 @@ alias tor='open -a "Tor Browser"'
 alias switchtozsh='chsh -s $(which zsh)'
 alias maps='telnet mapscii.me'
 alias edtheme='em ~/.oh-my-zsh/custom/themes/agnosterzak.zsh-theme'
+alias shiftit='open -a shiftit
