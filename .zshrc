@@ -82,7 +82,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 # export MANPATH="/usr/local/man:$MANPATH"
 export PATH="/usr/local/sbin:$PATH"
 export PATH="${PATH}:/Users/patrickgauding/anaconda3/bin"
-export PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/Current/bin"
+# export PATH="${PATH}:/Library/Frameworks/Python.framework/Versions/Current/bin"
 
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
