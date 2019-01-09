@@ -96,7 +96,7 @@ alias zotero='open -a Zotero'
 alias bibdesk='open -a Bibdesk'
 alias apps='open -a "App Store"'
 alias cisco='open -a "Cisco AnyConnect Secure Mobility Client"'
-alias brewup='brew update; brew upgrade; brew prune; brew cleanup;
+alias brewup='brew update; brew upgrade; brew cleanup;
               brew doctor'
 alias condaup='conda update --prefix /Users/patrickgauding/anaconda3 anaconda'
 alias gitkey='source ~/.ssh/gitkey.sh'
