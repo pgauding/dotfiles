@@ -30,6 +30,8 @@ alias 5.='cd ../../../../..'
 alias tmptxt='open -a emacs ~/tmp/tmp.txt'
 alias tmpr='open -a emacs ~/tmp/tmp.R'
 
+alias htop='sudo htop'
+
 ## Locations
 alias docs='cd ~/Documents'
 
