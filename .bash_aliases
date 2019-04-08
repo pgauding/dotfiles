@@ -32,6 +32,8 @@ alias tmpr='open -a emacs ~/tmp/tmp.R'
 
 alias htop='sudo htop'
 
+alias vita='cd ~/Documents/cv'
+
 ## Locations
 alias docs='cd ~/Documents'
 
