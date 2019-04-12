@@ -77,6 +77,7 @@ alias pirate='cd ~/Documents/Pirated\ Software'
 alias pauljohn='cd ~/Documents/pauljohn_manuscripts'
 alias crmda='cd ~/Documents/FS18/crmda'
 alias dotfiles='cd ~/dotfiles'
+alias jobm='cd ~/Documents/jobmarket'
 
 ## Applications
 alias reader='open -a "Adobe Acrobat Reader DC"'
