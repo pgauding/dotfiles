@@ -32,7 +32,7 @@ alias tmpr='open -a emacs ~/tmp/tmp.R'
 
 alias htop='sudo htop'
 
-alias vita='cd ~/Documents/cv'
+alias vita='cd ~/Documents/vita'
 
 ## Locations
 alias docs='cd ~/Documents'
@@ -106,7 +106,7 @@ alias apps='open -a "App Store"'
 alias cisco='open -a "Cisco AnyConnect Secure Mobility Client"'
 alias brewup='brew update; brew upgrade; brew cleanup;
               brew doctor'
-alias condaup='conda update --prefix /Users/patrickgauding/anaconda3 anaconda --verbose'
+alias condaup='conda update --prefix /Users/patrickgauding/anaconda3 anaconda --vrbose'
 alias gitkey='source ~/.ssh/gitkey.sh'
 alias safari='open -a Safari'
 alias libre='open -a libreoffice'
