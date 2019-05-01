@@ -79,6 +79,8 @@ alias crmda='cd ~/Documents/FS18/crmda'
 alias dotfiles='cd ~/dotfiles'
 alias jobm='cd ~/Documents/jobmarket'
 
+alias projects='cd ~/Documents/projects'
+
 ## Applications
 alias reader='open -a "Adobe Acrobat Reader DC"'
 alias weather='ansiweather -l Lawrence,US -u imperial'
