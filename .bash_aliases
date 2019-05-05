@@ -80,6 +80,7 @@ alias dotfiles='cd ~/dotfiles'
 alias jobm='cd ~/Documents/jobmarket'
 
 alias projects='cd ~/Documents/projects'
+alias data='cd ~/Documents/data'
 
 ## Applications
 alias reader='open -a "Adobe Acrobat Reader DC"'
