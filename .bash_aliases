@@ -109,7 +109,7 @@ alias apps='open -a "App Store"'
 alias cisco='open -a "Cisco AnyConnect Secure Mobility Client"'
 alias brewup='brew update; brew upgrade; brew cleanup;
               brew doctor'
-alias condaup='conda update --prefix /Users/patrickgauding/anaconda3 anaconda --vrbose'
+alias condaup='conda update --prefix /Users/patrickgauding/anaconda3 anaconda --verbose'
 alias gitkey='source ~/.ssh/gitkey.sh'
 alias safari='open -a Safari'
 alias libre='open -a libreoffice'
