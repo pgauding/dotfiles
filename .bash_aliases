@@ -124,3 +124,5 @@ alias maps='telnet mapscii.me'
 alias edtheme='em ~/.oh-my-zsh/custom/themes/agnosterzak.zsh-theme'
 alias shiftit='open -a shiftit'
 alias mail='open -a Mail'
+
+alias python='python3'
