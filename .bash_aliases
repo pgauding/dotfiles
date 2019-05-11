@@ -69,6 +69,7 @@ alias m18='cd ~/Documents/Milford18'
 alias tmp='cd ~/tmp'
 
 alias us19='cd ~/Documents/US19'
+alias fs19='cd ~/Documents/FS19'
 
 alias diss='cd ~/Documents/dissertation'
 
