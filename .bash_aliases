@@ -127,3 +127,4 @@ alias shiftit='open -a shiftit'
 alias mail='open -a Mail'
 
 alias python='python3'
+alias py='python3'
