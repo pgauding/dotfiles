@@ -32,8 +32,6 @@ alias tmpr='open -a emacs ~/tmp/tmp.R'
 
 alias htop='sudo htop'
 
-alias vita='cd ~/Documents/vita'
-
 ## Locations
 alias docs='cd ~/Documents'
 
@@ -72,6 +70,8 @@ alias us19='cd ~/Documents/US19'
 alias fs19='cd ~/Documents/FS19'
 
 alias diss='cd ~/Documents/dissertation'
+
+alias vita='cd ~/Documents/vita'
 
 alias int='cd ~/Documents/Interesting_Papers/'
 alias pirate='cd ~/Documents/Pirated\ Software'
