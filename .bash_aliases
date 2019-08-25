@@ -114,6 +114,7 @@ alias brewup='brew update; brew upgrade; brew cleanup;
               brew doctor'
 alias condaup='conda update --prefix /Users/patrickgauding/anaconda3 anaconda --verbose'
 alias gitkey='source ~/.ssh/gitkey.sh'
+alias gkgp='source ~/.ssh/gitkey.sh ; git push'
 alias safari='open -a Safari'
 alias libre='open -a libreoffice'
 alias matlab='open -a MATLAB_R2018b'
