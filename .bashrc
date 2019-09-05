@@ -33,3 +33,6 @@ test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shel
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+export PATH=/panfs/pfs.local/work/crmda/tools/bin:$PATH
+source crmda_env.sh
