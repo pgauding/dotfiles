@@ -120,7 +120,7 @@
 
 (require 'ess-site)
 ;; soft require: no error if package not found
-(require 'ess-smart-underscore nil 'noerror)
+;;(require 'ess-smart-underscore nil 'noerror)
 
 (add-to-list 'auto-mode-alist '("\\..md" . poly-markdown-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
