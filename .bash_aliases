@@ -71,7 +71,7 @@ alias tmp='cd ~/tmp'
 alias us19='cd ~/Documents/US19'
 alias fs19='cd ~/Documents/FS19'
 
-alias diss='cd ~/Documents/dissertation'
+alias diss='cd ~/Documents/research/dissertation'
 
 alias vita='cd ~/Documents/vita'
 
@@ -82,7 +82,6 @@ alias crmda='cd ~/Documents/FS18/crmda'
 alias dotfiles='cd ~/dotfiles'
 alias jobm='cd ~/Documents/jobmarket'
 
-alias projects='cd ~/Documents/projects'
 alias data='cd ~/Documents/data'
 
 ## Applications
