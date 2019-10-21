@@ -31,6 +31,7 @@
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
  '(scroll-bar-mode nil)
+ '(send-mail-function (quote mailclient-send-it))
  '(tool-bar-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
