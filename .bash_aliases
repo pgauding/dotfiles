@@ -115,6 +115,7 @@ alias cisco='open -a "Cisco AnyConnect Secure Mobility Client"'
 alias brewup='brew update; brew upgrade; brew cleanup;
               brew doctor'
 alias condaup='conda update --prefix /Users/patrickgauding/anaconda3 anaconda --verbose'
+alias anaconda='anaconda-navigator.app'
 alias gitkey='source ~/.ssh/gitkey.sh'
 alias gkgp='source ~/.ssh/gitkey.sh ; git push'
 alias safari='open -a Safari'
