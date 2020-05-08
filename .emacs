@@ -33,7 +33,7 @@
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
    (quote
-    (synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
+    (anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
