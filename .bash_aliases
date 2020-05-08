@@ -35,6 +35,8 @@ alias tmpr='open -a emacs ~/tmp/tmp.R'
 alias htop='sudo htop'
 alias powermetrics='sudo powermetrics'
 
+alias bibcommit='git commit ~/Documents/research/dissertation/bib/gauding-diss.bib -m "add some cites"'
+
 ## Locations
 alias docs='cd ~/Documents'
 
