@@ -9,6 +9,7 @@
 ;; Make Org mode work with files ending in .org
 ;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 ;; The above is the default in recent emacsen
+(setq org-log-done 'time)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
