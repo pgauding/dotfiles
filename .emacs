@@ -10,6 +10,8 @@
 ;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 ;; The above is the default in recent emacsen
 (setq org-log-done 'time)
+(setq org-todo-keywords
+      '((sequence "TODO" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
