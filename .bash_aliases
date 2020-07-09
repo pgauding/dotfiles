@@ -89,6 +89,8 @@ alias data='cd ~/Documents/data'
 alias zr='cd ~/Documents/research'
 alias zt='cd ~/Documents/teaching'
 
+alias finance='cd ~/Documents/finance'
+
 ## Applications
 alias reader='open -a "Adobe Acrobat Reader DC"'
 alias weather='ansiweather -l Lawrence,US -u imperial'
