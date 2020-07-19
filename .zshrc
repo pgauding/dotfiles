@@ -135,3 +135,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+# Kitty
+
+#autoload -Uz compinit
+#compinit
+# Completion for kitty
+#kitty + complete setup zsh | source /dev/stdin
