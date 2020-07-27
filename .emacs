@@ -12,6 +12,9 @@
 (setq org-log-done 'time)
 (setq org-todo-keywords
       '((sequence "TODO" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
+(setq org-indent-indentation-per-level 1)
+;;(require 'org-bullets)
+;;(add-hook 'org-mode-hook (lamda () (org-bullets-mode 1)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
