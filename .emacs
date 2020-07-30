@@ -13,8 +13,8 @@
 (setq org-todo-keywords
       '((sequence "TODO" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
 (setq org-indent-indentation-per-level 1)
-;;(require 'org-bullets)
-;;(add-hook 'org-mode-hook (lamda () (org-bullets-mode 1)))
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lamda () (org-bullets-mode 1)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -39,7 +39,7 @@
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
    (quote
-    (mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
+    (org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
