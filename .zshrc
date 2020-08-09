@@ -137,7 +137,7 @@ unset __conda_setup
 
 # Kitty
 
-#autoload -Uz compinit
-#compinit
+autoload -Uz compinit
+compinit
 # Completion for kitty
-#kitty + complete setup zsh | source /dev/stdin
+kitty + complete setup zsh | source /dev/stdin
