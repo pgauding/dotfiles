@@ -35,6 +35,7 @@
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
  '(ns-auto-hide-menu-bar nil)
+ '(org-agenda-files (quote ("~/Desktop/TODO.org")))
  '(org-babel-load-languages (quote ((emacs-lisp . t) (R . t))))
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
