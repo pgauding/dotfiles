@@ -144,3 +144,5 @@ alias TODO='open -a emacs ~/Library/Mobile\ Documents/iCloud~com~appsonthemove~b
 
 alias dlist='diskutil list'
 alias deject='diskutil eject'
+
+alias negs='cd ~/Documents/GTAC/negotiations/2020'
