@@ -60,6 +60,15 @@
 
 (global-set-key (kbd "M-p") 'ace-window)
 
+;; Spotify.el
+(add-to-list 'load-path "~/.emacs.d/manual-installs/spotify.el")
+(require 'spotify)
+
+;; Settings
+(setq spotify-oauth2-client-secret "f683c9ca0f074c6485905dafe7fbe0f9")
+(setq spotify-oauth2-client-id "83fae14285ac4a6abba5028dc249f9e2")
+(define-key spotify-mode-map (kbd "C-c .") 'spotify-command-map)
+
 ;; Paul Johnson
 ;; 2015-10-01
 ;;
