@@ -143,3 +143,4 @@ alias py='python3'
 alias TODO='open -a emacs ~/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documents/org/TODO.org'
 
 alias dlist='diskutil list'
+alias deject='diskutil eject'
