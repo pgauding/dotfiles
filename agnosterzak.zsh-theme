@@ -69,7 +69,7 @@ prompt_end() {
 # Context: user@hostname (who am I and where am I)
 prompt_context() {
   if [[ -n "$SSH_CLIENT" ]]; then
-    prompt_segment magenta white "%{$fg_bold[white]%(!.%{%F{white}%}.)%}$USER@%m%{$fg_no_bold[white]%}"
+    prompt_segment magenta grey "%{$fg_bold[grey]%(!.%{%F{grey}%}.)%}$USER@%m%{$fg_no_bold[grey]%}"
   else
     prompt_segment cyan black "%{$fg_bold[black]%(!.%{%F{black}%}.)%}@$USER%{$fg_no_bold[black]%}"
   fi
@@ -117,13 +117,13 @@ prompt_battery() {
     b=$(battery_pct_remaining)
     if [[ $(ioreg -rc AppleSmartBattery | grep -c '^.*"ExternalConnected"\ =\ No') -eq 1 ]] ; then
       if [ $b -gt 50 ] ; then
-        prompt_segment green white
+        prompt_segment green grey
       elif [ $b -gt 20 ] ; then
-        prompt_segment yellow white
+        prompt_segment yellow grey
       else
-        prompt_segment red white
+        prompt_segment red grey
       fi
-      echo -n "%{$fg_bold[white]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%}"
+      echo -n "%{$fg_bold[grey]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[grey]%}"
     fi
   fi
 
@@ -156,13 +156,13 @@ prompt_battery() {
     b=$(battery_pct_remaining)
     if [[ $(acpi 2&>/dev/null | grep -c '^Battery.*Discharging') -gt 0 ]] ; then
       if [ $b -gt 40 ] ; then
-        prompt_segment green white
+        prompt_segment green grey
       elif [ $b -gt 20 ] ; then
-        prompt_segment yellow white
+        prompt_segment yellow grey
       else
-        prompt_segment red white
+        prompt_segment red grey
       fi
-      echo -n "%{$fg_bold[white]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[white]%}"
+      echo -n "%{$fg_bold[grey]%}$HEART$(battery_pct_remaining)%%%{$fg_no_bold[grey]%}"
     fi
 
   fi
@@ -190,11 +190,11 @@ prompt_git() {
     if [[ -n $dirty ]]; then
       clean=''
       bgclr='yellow'
-      fgclr='white'
+      fgclr='grey'
     else
       clean=' ✔'
       bgclr='green'
-      fgclr='white'
+      fgclr='grey'
     fi
 
     local upstream=$(git rev-parse --symbolic-full-name --abbrev-ref @{upstream} 2> /dev/null)
@@ -213,7 +213,7 @@ prompt_git() {
     if [[ $number_modified -gt 0 ]]; then
       modified=" $number_modified●"
       bgclr='red'
-      fgclr='white'
+      fgclr='grey'
     fi
 
     local number_added_modified=$(\grep -c "^M" <<< "${git_status}")
@@ -228,7 +228,7 @@ prompt_git() {
     if [[ $number_deleted -gt 0 ]]; then
       deleted=" $number_deleted‒"
       bgclr='red'
-      fgclr='white'
+      fgclr='grey'
     fi
 
     local number_added_deleted=$(\grep -c "^D" <<< "${git_status}")
@@ -245,7 +245,7 @@ prompt_git() {
     if [[ $number_of_stashes -gt 0 ]]; then
       stashed=" ${number_of_stashes##*(  )}⚙"
       bgclr='magenta'
-      fgclr='white'
+      fgclr='grey'
     fi
 
     if [[ $number_added -gt 0 || $number_added_modified -gt 0 || $number_added_deleted -gt 0 ]]; then ready_commit=' ⚑'; fi
@@ -263,7 +263,7 @@ prompt_git() {
     if [[ $commits_ahead -gt 0 && $commits_behind -gt 0 ]]; then has_diverged=true; fi
     if [[ $has_diverged == false && $commits_ahead -gt 0 ]]; then
       if [[ $bgclr == 'red' || $bgclr == 'magenta' ]] then
-        to_push=" $fg_bold[white]↑$commits_ahead$fg_bold[$fgclr]"
+        to_push=" $fg_bold[grey]↑$commits_ahead$fg_bold[$fgclr]"
       else
         to_push=" $fg_bold[black]↑$commits_ahead$fg_bold[$fgclr]"
       fi
@@ -290,7 +290,7 @@ prompt_hg() {
     if $(hg prompt >/dev/null 2>&1); then
       if [[ $(hg prompt "{status|unknown}") = "?" ]]; then
         # if files are not added
-        prompt_segment red white
+        prompt_segment red grey
         st='±'
       elif [[ -n $(hg prompt "{status|modified}") ]]; then
         # if any modification
@@ -321,7 +321,7 @@ prompt_hg() {
 
 # Dir: current working directory
 prompt_dir() {
-  prompt_segment cyan white "%{$fg_bold[white]%}%~%{$fg_no_bold[white]%}"
+  prompt_segment cyan grey "%{$fg_bold[grey]%}%~%{$fg_no_bold[grey]%}"
 }
 
 # Virtualenv: current working virtualenv
@@ -333,7 +333,7 @@ prompt_virtualenv() {
 }
 
 prompt_time() {
-  prompt_segment blue white "%{$fg_bold[white]%}%D{%a %e %b - %H:%M}%{$fg_no_bold[white]%}"
+  prompt_segment blue grey "%{$fg_bold[grey]%}%D{%a %e %b - %H:%M}%{$fg_no_bold[grey]%}"
 }
 
 # Status:
