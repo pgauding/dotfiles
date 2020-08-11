@@ -1,6 +1,10 @@
 (package-initialize)
 
+;; Not necessary in Emacs 27
 ;;(server-start)
+
+;; Remove annoying warning in Emacs 27
+;;(setq byte-compile warnings '(cl-functions))
 
 ;;;;Org mode configuration
 
@@ -28,25 +32,24 @@
  '(blink-cursor-mode nil)
  '(cua-auto-tabify-rectangles nil)
  '(cua-mode t nil (cua-base))
- '(custom-enabled-themes (quote (wombat)))
+ '(custom-enabled-themes '(wombat))
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode t)
  '(line-number-mode nil)
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
  '(ns-auto-hide-menu-bar nil)
- '(org-agenda-files (quote ("~/Desktop/TODO.org")))
- '(org-babel-load-languages (quote ((emacs-lisp . t) (R . t))))
+ '(org-agenda-files '("~/Desktop/TODO.org"))
+ '(org-babel-load-languages '((emacs-lisp . t) (R . t)))
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
-   (quote
-    (neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
+   '(magit neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
  '(scroll-bar-mode nil)
- '(send-mail-function (quote mailclient-send-it))
+ '(send-mail-function 'mailclient-send-it)
  '(tool-bar-mode t))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -133,7 +136,7 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
-(package-initialize)
+;;(package-initialize)
 (elpy-enable)
 ;; Deprecated
 ;;(elpy-use-ipython)
