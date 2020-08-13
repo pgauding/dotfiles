@@ -63,6 +63,8 @@
 
 (global-set-key (kbd "M-p") 'ace-window)
 
+(require 'magit)
+
 ;; Paul Johnson
 ;; 2015-10-01
 ;;
