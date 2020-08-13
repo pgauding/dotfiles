@@ -63,15 +63,6 @@
 
 (global-set-key (kbd "M-p") 'ace-window)
 
-;; Spotify.el
-(add-to-list 'load-path "~/.emacs.d/manual-installs/spotify.el")
-(require 'spotify)
-
-;; Settings
-(setq spotify-oauth2-client-secret "f683c9ca0f074c6485905dafe7fbe0f9")
-(setq spotify-oauth2-client-id "83fae14285ac4a6abba5028dc249f9e2")
-(define-key spotify-mode-map (kbd "C-c .") 'spotify-command-map)
-
 ;; Paul Johnson
 ;; 2015-10-01
 ;;
@@ -114,7 +105,8 @@
   ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
-    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/"))))))
+    (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
+  )
 ;; (package-initialize)
 ;;   (package-initialize)
 ;;   (add-to-list 'package-archives
@@ -125,7 +117,7 @@
 ;; (add-to-list 'package-archives
 ;;              '("elpy" . "http://jorgenschaefer.github.io/packages/" t))
 ;; (add-to-list 'package-archives
-;; 	     '("melpa" . "https://melpa.org/packages/") t))
+;; 	     '("melpa" . "http://melpa.org/packages/") t))
 
 (require 'stan-mode)
 
@@ -136,8 +128,8 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
-;;(package-initialize)
-(elpy-enable)
+(package-initialize)
+;;(elpy-enable)
 ;; Deprecated
 ;;(elpy-use-ipython)
 
