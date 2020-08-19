@@ -1,12 +1,19 @@
 ## List of Current Aliases
 
 ## Functions
-alias l='ls -lahF'
-alias ll='ls -lahG'
-alias ls='ls -lahF'
-alias sl='ls -lahF'
-alias lt='ls -lahtF'
-alias lo='ls -l'
+# alias l='ls -lahF'
+# alias ll='ls -lahG'
+# alias ls='ls -lahF'
+# alias sl='ls -lahF'
+# alias lt='ls -lahtF'
+# alias lo='ls -l'
+
+# Switch to exa
+alias ls='exa -alg --color=always' # my preferred listing
+alias sl='ls'
+alias lt='exa -alg --sort=modified'
+alias lT='exa -aT --color=always' # tree listing
+
 alias df='df -H'
 alias bashedit='open -a emacs ~/.bash_aliases'
 alias bashreload='. ~/.bash_profile'
