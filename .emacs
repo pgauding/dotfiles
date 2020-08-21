@@ -15,7 +15,7 @@
 ;; The above is the default in recent emacsen
 (setq org-log-done 'time)
 (setq org-todo-keywords
-      '((sequence "TODO" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
+      '((sequence "TODO" "IN PROGRESS" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
 (setq org-indent-indentation-per-level 1)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
