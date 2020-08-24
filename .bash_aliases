@@ -152,3 +152,4 @@ alias dlist='diskutil list'
 alias deject='diskutil eject'
 
 alias negs='cd ~/Documents/GTAC/negotiations/2020'
+alias obs='open -a obs'
