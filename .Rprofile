@@ -20,6 +20,13 @@ q <- function(save = "no", ...){
     quit(save=save, ...)
     }
 
+## Alias `pwd` to `getwd`
+pwd <- function () {
+.Internal(getwd())
+<bytecode: 0x7fe75fdbd310>
+<environment: namespace:base>
+}
+
 ## OPTIONS
 options(width = 80)
 
