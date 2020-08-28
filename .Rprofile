@@ -21,11 +21,11 @@ q <- function(save = "no", ...){
     }
 
 ## Alias `pwd` to `getwd`
-pwd <- function () {
-.Internal(getwd())
-<bytecode: 0x7fe75fdbd310>
-<environment: namespace:base>
-}
+# pwd <- function () {
+# .Internal(getwd())
+# <bytecode: 0x7fe75fdbd310>
+# <environment: namespace:base>
+# }
 
 ## OPTIONS
 options(width = 80)
