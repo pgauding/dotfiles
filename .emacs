@@ -69,18 +69,18 @@
 (require 'magit)
 
 ;; for .srt files
-;; (use-package subed
-;;   ;; Tell emacs where to find subed
-;;   :load-path "~/.emacs.d/elisp/"
-;;   :config
-;;   ;; Disable automatic movement of point by default
-;;   (add-hook 'subed-mode-hook 'subed-disable-sync-point-to-player)
-;;   ;; Remember cursor position between sessions
-;;   (add-hook 'subed-mode-hook 'save-place-local-mode)
-;;   ;; Break lines automatically while typing
-;;   (add-hook 'subed-mode-hook 'turn-on-auto-fill)
-;;    ;; Break lines at 40 characters
-;;   (add-hook 'subed-mode-hook (lambda () (setq-local fill-column 40))))
+(use-package subed
+  ;; Tell emacs where to find subed
+  :load-path "~/.emacs.d/elisp/"
+  :config
+  ;; Disable automatic movement of point by default
+  (add-hook 'subed-mode-hook 'subed-disable-sync-point-to-player)
+  ;; Remember cursor position between sessions
+  (add-hook 'subed-mode-hook 'save-place-local-mode)
+  ;; Break lines automatically while typing
+  (add-hook 'subed-mode-hook 'turn-on-auto-fill)
+   ;; Break lines at 40 characters
+  (add-hook 'subed-mode-hook (lambda () (setq-local fill-column 40))))
 
 ;; Paul Johnson
 ;; 2015-10-01
