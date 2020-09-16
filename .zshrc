@@ -154,3 +154,6 @@ alias ls='exa -alg --color=always' # my preferred listing
 alias sl='ls'
 alias lt='exa -alg --sort=modified'
 alias lT='exa -aT --color=always' # tree listing
+
+# aliases
+alias quicktime='open -a QuickTime\ Player.app'
