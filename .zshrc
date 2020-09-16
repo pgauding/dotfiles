@@ -156,4 +156,4 @@ alias lt='exa -alg --sort=modified'
 alias lT='exa -aT --color=always' # tree listing
 
 # aliases
-alias quicktime='open -a QuickTime\ Player.app'
+alias qt='open -a QuickTime\ Player.app'
