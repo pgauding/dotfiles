@@ -17,13 +17,12 @@
 (setq org-todo-keywords
       '((sequence "TODO" "IN PROGRESS" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
 (setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#e60000" :weight bold))
+      '(("TODO" . (:foreground "#FA8072" :weight bold))
 	("IN PROGRESS" . "#E35DBF")
 	("WAITING" . "#e6e600")
 	("FEEDBACK" . "#cccc00")
 	("DELEGATED" . "#4dffff")
 	("CANCELED" . "#008080")))
-(setq org-todo-keywords
 (setq org-indent-indentation-per-level 1)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
