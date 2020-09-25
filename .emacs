@@ -17,11 +17,11 @@
 (setq org-todo-keywords
       '((sequence "TODO" "IN PROGRESS" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
 (setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#ff39a3" :weight bold))
+      '(("TODO" . (:foreground "#e60000" :weight bold))
 	("IN PROGRESS" . "#E35DBF")
-	("WAITING" . "#E35DBF")
-	("FEEDBACK" . "#E35DBF")
-	("DELEGATED" . "pink")
+	("WAITING" . "#e6e600")
+	("FEEDBACK" . "#cccc00")
+	("DELEGATED" . "#4dffff")
 	("CANCELED" . "#008080")))
 (setq org-todo-keywords
 (setq org-indent-indentation-per-level 1)
