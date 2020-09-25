@@ -16,6 +16,14 @@
 (setq org-log-done 'time)
 (setq org-todo-keywords
       '((sequence "TODO" "IN PROGRESS" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
+(setq org-todo-keyword-faces
+      '(("TODO" . (:foreground "#ff39a3" :weight bold))
+	("IN PROGRESS" . "#E35DBF")
+	("WAITING" . "#E35DBF")
+	("FEEDBACK" . "#E35DBF")
+	("DELEGATED" . "pink")
+	("CANCELED" . "#008080")))
+(setq org-todo-keywords
 (setq org-indent-indentation-per-level 1)
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
@@ -46,7 +54,7 @@
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
    (quote
-    (use-package magit neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
+    (binder vterm use-package magit neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
