@@ -17,7 +17,7 @@
 (setq org-todo-keywords
       '((sequence "TODO" "IN PROGRESS" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
 (setq org-todo-keyword-faces
-      '(("TODO" . (:foreground "#FA8072" :weight bold))
+      '(;;("TODO" . (:foreground "#FA8072" :weight bold))
 	("IN PROGRESS" . "#E35DBF")
 	("WAITING" . "#e6e600")
 	("FEEDBACK" . "#cccc00")
