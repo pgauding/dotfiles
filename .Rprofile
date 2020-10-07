@@ -34,7 +34,7 @@ options(width = 80)
 local({
 	 r = getOption("repos")
 	 r["CRAN"] <- "https://rweb.crmda.ku.edu/cran"
-	 r["KRAN"] <- "https://rweb.crmda.ku.edu/kran"
+#	 r["KRAN"] <- "https://rweb.crmda.ku.edu/kran"
 	 options(repos = r)
 })
 
