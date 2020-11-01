@@ -1,10 +1,12 @@
-(package-initialize)
+;;(package-initialize)
 
 ;; Not necessary in Emacs 27
 ;;(server-start)
 
 ;; Remove annoying warning in Emacs 27
 ;;(setq byte-compile warnings '(cl-functions))
+
+(setq load-prefer-newer t)
 
 ;;;;Org mode configuration
 
@@ -53,7 +55,7 @@
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
    (quote
-    (company ess binder vterm use-package magit neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update ess-smart-underscore poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
+    (helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme)))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
@@ -154,7 +156,7 @@
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
 (add-to-list 'interpreter-mode-alist '("python" . python-mode))
 
-(package-initialize)
+;; (package-initialize)
 ;;(elpy-enable)
 ;; Deprecated
 ;;(elpy-use-ipython)
