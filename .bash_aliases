@@ -145,6 +145,7 @@ alias mail='open -a Mail'
 
 alias python='python3'
 alias py='python3'
+alias pip='pip3'
 
 alias TODO='open -a emacs ~/Library/Mobile\ Documents/iCloud~com~appsonthemove~beorg/Documents/org/TODO.org'
 
