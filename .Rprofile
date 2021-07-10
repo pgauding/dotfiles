@@ -40,3 +40,6 @@ local({
 
 ## Allow tab-completion in library() and require() calls
 utils::rc.settings(ipck=TRUE)
+
+## Set Hugo version
+options(blogdown.hugo.version = "0.85.0")
