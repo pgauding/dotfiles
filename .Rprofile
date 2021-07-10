@@ -42,4 +42,4 @@ local({
 utils::rc.settings(ipck=TRUE)
 
 ## Set Hugo version
-options(blogdown.hugo.version = "0.85.0")
+#options(blogdown.hugo.version = "0.85.0")
