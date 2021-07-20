@@ -137,6 +137,7 @@ alias game='emacs -batch -l dunnet'
 alias texup='sudo tlmgr update --all'
 alias tor='open -a "Tor Browser"'
 alias console='open -a console'
+alias purge='sudo purge'
 
 alias switchtozsh='chsh -s $(which zsh)'
 alias maps='telnet mapscii.me'
