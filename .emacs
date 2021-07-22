@@ -6,6 +6,8 @@
 ;; Remove annoying warning in Emacs 27
 ;;(setq byte-compile warnings '(cl-functions))
 
+(pdf-tools-install)
+(add-hook 'prog-mode-hook 'linum-on)
 (setq load-prefer-newer t)
 
 ;;;;Org mode configuration
@@ -43,7 +45,7 @@
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wombat))
  '(elpy-rpc-python-command "python3")
- '(global-linum-mode t)
+ '(global-linum-mode nil)
  '(line-number-mode nil)
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
@@ -53,7 +55,7 @@
  '(org-babel-load-languages '((emacs-lisp . t) (R . t)))
  '(org-confirm-babel-evaluate nil)
  '(package-selected-packages
-   '(company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
+   '(linum-relative pdf-tools tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-roam org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
@@ -90,6 +92,10 @@
   (add-hook 'subed-mode-hook 'turn-on-auto-fill)
    ;; Break lines at 40 characters
   (add-hook 'subed-mode-hook (lambda () (setq-local fill-column 40))))
+
+;; (use-package pdf-tools
+;;   :config
+;;   (linum-mode -1))
 
 ;; Paul Johnson
 ;; 2015-10-01
