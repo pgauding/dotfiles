@@ -8,6 +8,9 @@
 
 (pdf-tools-install)
 (add-hook 'prog-mode-hook 'linum-on)
+
+(desktop-save-mode 1)
+
 (setq load-prefer-newer t)
 
 ;;;;Org mode configuration
@@ -62,7 +65,7 @@
  '(python-indent-offset 4)
  '(scroll-bar-mode nil)
  '(send-mail-function 'mailclient-send-it)
- '(tool-bar-mode t))
+ '(tool-bar-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
