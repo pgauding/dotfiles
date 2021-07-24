@@ -10,6 +10,9 @@
 (add-hook 'prog-mode-hook 'linum-on)
 
 (desktop-save-mode 1)
+;; Need to have to to ensure title-bar can be read with desktop-save-mode enabled
+;;(add-to-list 'frameset-filter-alist '(ns-transparent-titlebar . :never))
+(add-to-list 'frameset-filter-alist '(ns-appearance . :never))
 
 (setq load-prefer-newer t)
 
@@ -47,6 +50,8 @@
  '(cua-auto-tabify-rectangles nil)
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wombat))
+ '(custom-safe-themes
+   '("9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default))
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode nil)
  '(line-number-mode nil)
