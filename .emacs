@@ -8,6 +8,7 @@
 
 (pdf-tools-install)
 (add-hook 'prog-mode-hook 'linum-on)
+(setq pdf-view-midnight-colors '("#f6f3e8" . "#242424"))
 
 (desktop-save-mode 1)
 ;; Need to have to to ensure title-bar can be read with desktop-save-mode enabled
