@@ -6,6 +6,9 @@
 ;; Remove annoying warning in Emacs 27
 ;;(setq byte-compile warnings '(cl-functions))
 
+;; Try to fix 'AUCTex can't find TeX distribution thing
+(setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
+
 (pdf-tools-install)
 (add-hook 'prog-mode-hook 'linum-on)
 (setq pdf-view-midnight-colors '("#f6f3e8" . "#242424"))
