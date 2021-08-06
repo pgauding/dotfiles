@@ -159,3 +159,6 @@ alias lT='exa -aT --color=always' # tree listing
 alias qt='open -a QuickTime\ Player.app'
 export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
+
+# http://www.faqs.org/faqs/unix-faq/shell/zsh/#ixzz0TyTJsHMq
+[[ $EMACS = t ]] && unsetopt zle
