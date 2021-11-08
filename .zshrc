@@ -70,8 +70,7 @@ plugins=(
    # emacs
     colored-man-pages
     git
-    osx
-    zsh_reload
+    macos
 )
 
 source $ZSH/oh-my-zsh.sh
