@@ -20,7 +20,7 @@ alias bashreload='. ~/.bash_profile'
 alias eject2='diskutil eject /dev/disk2'
 alias sleepnow='pmset sleepnow'
 alias night='pmset sleepnow'
-alias .emacs='open -a emacs ~/.emacs.d/.emacs'
+alias .emacs='open -a emacs ~/dotfiles/.emacs'
 alias oepn='open'
 alias cadt='cat'
 
