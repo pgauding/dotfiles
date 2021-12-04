@@ -139,6 +139,7 @@ alias tor='open -a "Tor Browser"'
 alias console='open -a console'
 alias purge='sudo purge'
 alias preview='open -a preview'
+alias skim='open -a skim'
 
 alias switchtozsh='chsh -s $(which zsh)'
 alias maps='telnet mapscii.me'
