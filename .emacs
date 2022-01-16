@@ -491,13 +491,55 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
 ;; Trying to set up a Zettelkasen type system
 ;; https://rgoswami.me/posts/org-note-workflow/
 
-(setq
-   org_notes (concat (getenv "HOME") "/GIT/paper-notes")
+(use-package org-roam
+  :ensure t
+  :hook (org-load . org-roam-mode)
+  :commands (org-roam-buffer-toggle-display
+             org-roam-find-file
+             org-roam-graph
+             org-roam-insert
+             org-roam-switch-to-buffer
+             org-roam-dailies-date
+             org-roam-dailies-today
+             org-roam-dailies-tomorrow
+             org-roam-dailies-yesterday)
+  :init
+  (setq org-roam-v2-ack t)
+  :custom
+  (setq
+   org_notes (concat (getenv "HOME") "/org-roam")
    zot_bib (concat (getenv "HOME") "/Documents/research/dissertation/bib/gauding-diss.bib")
    org-directory org_notes
    deft-directory org_notes
    org-roam-directory org_notes
+   org-roam-verbose nil
+   org-roam-buffer-no-delete-other-windows t
+   org-roam-completion-system 'default
+   org-roam-completion-everywhere t
    )
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+	 ("C-c n f" . org-roam-node-find)
+	 ("C-c n i" . org-roam-node-insert)
+	 :map org-mode-map
+	 ("C-M-i"   . completion-at-point))
+  :config
+  (org-roam-setup))
+  ;; ;; Normally, the org-roam buffer doesn't open until you explicitly call
+  ;; ;; `org-roam'. If `+org-roam-open-buffer-on-find-file' is non-nil, the
+  ;; ;; org-roam buffer will be opened for you when you use `org-roam-find-file'
+  ;; ;; (but not `find-file', to limit the scope of this behavior).
+  ;; (add-hook 'find-file-hook
+  ;;   (defun +org-roam-open-buffer-maybe-h ()
+  ;;     (and +org-roam-open-buffer-on-find-file
+  ;;          (memq 'org-roam-buffer--update-maybe post-command-hook)
+  ;;          (not (window-parameter nil 'window-side)) ; don't proc for popups
+  ;;          (not (eq 'visible (org-roam-buffer--visibility)))
+  ;;          (with-current-buffer (window-buffer)
+  ;;            (org-roam-buffer--get-create)))))
+
+  ;; Hide the mode line in the org-roam buffer, since it serves no purpose. This
+  ;; makes it easier to distinguish among other org buffers.
+  ;; (add-hook 'org-roam-buffer-prepare-hook #'hide-mode-line-mode))
 
 (use-package deft
   :commands deft
@@ -518,7 +560,7 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
   )
 
 (setq
- bibtex-completion-notes-path (concat (getenv "HOME") "/GIT/paper-notes")
+ bibtex-completion-notes-path (concat (getenv "HOME") "/org-roam")
  bibtex-completion-bibliography (concat (getenv "HOME") "/Documents/research/dissertation/bib/gauding-diss.bib")
 ;; bibtex-completion-library-path "~/Zotero/"
  bibtex-completion-pdf-field "file"
@@ -549,53 +591,11 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
          org-ref-completion-library 'org-ref-ivy-cite
          org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
          org-ref-default-bibliography (list  (concat (getenv "HOME") "/Documents/research/dissertation/bib/gauding-diss.bib"))
-         org-ref-bibliography-notes  (concat (getenv "HOME") "/GIT/paper-notes/bibnotes.org")
+         org-ref-bibliography-notes  (concat (getenv "HOME") "/org-roam/bibnotes.org")
          org-ref-note-title-format "* TODO %y - %t\n :PROPERTIES:\n  :Custom_ID: %k\n  :NOTER_DOCUMENT: %F\n :ROAM_KEY: cite:%k\n  :AUTHOR: %9a\n  :JOURNAL: %j\n  :YEAR: %y\n  :VOLUME: %v\n  :PAGES: %p\n  :DOI: %D\n  :URL: %U\n :END:\n\n"
-         org-ref-notes-directory (concat (getenv "HOME") "/GIT/paper-notes")
+         org-ref-notes-directory (concat (getenv "HOME") "/org-roam")
          org-ref-notes-function 'orb-edit-notes
     ))
-
-(use-package org-roam
-  :hook (org-load . org-roam-mode)
-  :commands (org-roam-buffer-toggle-display
-             org-roam-find-file
-             org-roam-graph
-             org-roam-insert
-             org-roam-switch-to-buffer
-             org-roam-dailies-date
-             org-roam-dailies-today
-             org-roam-dailies-tomorrow
-             org-roam-dailies-yesterday)
-  :preface
-  ;; Set this to nil so we can later detect whether the user has set a custom
-  ;; directory for it, and default to `org-directory' if they haven't.
-  (defvar org-roam-directory nil)
-  :init
-  :config
-  (setq org-roam-directory (expand-file-name (or org-roam-directory "roam")
-                                             org-directory)
-        org-roam-verbose nil  ; https://youtu.be/fn4jIlFwuLU
-        org-roam-buffer-no-delete-other-windows t ; make org-roam buffer sticky
-        org-roam-completion-system 'default
-)
-
-  ;; Normally, the org-roam buffer doesn't open until you explicitly call
-  ;; `org-roam'. If `+org-roam-open-buffer-on-find-file' is non-nil, the
-  ;; org-roam buffer will be opened for you when you use `org-roam-find-file'
-  ;; (but not `find-file', to limit the scope of this behavior).
-  (add-hook 'find-file-hook
-    (defun +org-roam-open-buffer-maybe-h ()
-      (and +org-roam-open-buffer-on-find-file
-           (memq 'org-roam-buffer--update-maybe post-command-hook)
-           (not (window-parameter nil 'window-side)) ; don't proc for popups
-           (not (eq 'visible (org-roam-buffer--visibility)))
-           (with-current-buffer (window-buffer)
-             (org-roam-buffer--get-create)))))
-
-  ;; Hide the mode line in the org-roam buffer, since it serves no purpose. This
-  ;; makes it easier to distinguish among other org buffers.
-  (add-hook 'org-roam-buffer-prepare-hook #'hide-mode-line-mode))
-
 
 ;; Since the org module lazy loads org-protocol (waits until an org URL is
 ;; detected), we can safely chain `org-roam-protocol' to it.
@@ -603,12 +603,13 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
   :after org-protocol)
 
 
-(use-package company-org-roam
+(use-package company
   :after org-roam
   :config
-  (set-company-backend! 'org-mode '(company-org-roam company-yasnippet company-dabbrev)))
+;;  (set-company-backend! 'org-mode '(company-org-roam company-yasnippet company-dabbrev)))
+  (push 'company-capf company-backends))
 
- (use-package org-roam-bibtex
+(use-package org-roam-bibtex
   :after (org-roam)
   :hook (org-roam-mode . org-roam-bibtex-mode)
   :config
@@ -632,31 +633,43 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
   :config
   (setq
    ;; The WM can handle splits
-   org-noter-notes-window-location 'other-frame
+   org-noter-notes-window-location 'horizontal-split
    ;; Please stop opening frames
-   org-noter-always-create-frame nil
+   org-noter-always-create-frame t
    ;; I want to see the whole file
    org-noter-hide-other nil
    ;; Everything is relative to the main notes file
+   org_notes (concat (getenv "HOME") "/org-roam")
    org-noter-notes-search-path (list org_notes)
    )
   )
+  
 
 ;; Actually start using templates
-(after! org-capture
-  ;; Firefox and Chrome
-  (add-to-list 'org-capture-templates
-               '("P" "Protocol" entry ; key, name, type
-                 (file+headline +org-capture-notes-file "Inbox") ; target
-                 "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
-                 :prepend t ; properties
-                 :kill-buffer t))
-  (add-to-list 'org-capture-templates
-               '("L" "Protocol Link" entry
-                 (file+headline +org-capture-notes-file "Inbox")
-                 "* %? [[%:link][%(transform-square-brackets-to-round-ones \"%:description\")]]\n"
-                 :prepend t
-                 :kill-buffer t))
-)
+;; :after org-capture
+;;  Firefox and Chrome
+(setq org-capture-templates
+      '(("P" "Protocol" entry ; key, name, type
+        (file+headline +org-capture-notes-file "Inbox") ; target
+        "* %^{Title}\nSource: %u, %c\n #+BEGIN_QUOTE\n%i\n#+END_QUOTE\n\n\n%?"
+        :prepend t ; properties
+        :kill-buffer t)
+      '("L" "Protocol Link" entry
+        (file+headline +org-capture-notes-file "Inbox")
+        "* %? [[%:link][%(transform-square-brackets-to-round-ones \"%:description\")]]\n"
+        :prepend t
+        :kill-buffer t)))
+
+;; ;; Attempt to get org-capture to not temporarily destroy windows
+;; (defun my-org-capture-place-template-dont-delete-windows (oldfun args)
+;;   (cl-letf (((symbol-function 'delete-other-windows) 'ignore))
+;;     (apply oldfun args)))
+
+;; (with-eval-after-load "org-capture"
+;;   (advice-add 'org-capture-place-template :around 'my-org-capture-place-template-dont-delete-windows))
+
 ;; A setting to resolve not connecting to MELPA
 (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
+
+(setq org-roam-graph-viewer "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+
