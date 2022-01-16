@@ -673,3 +673,46 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
 
 (setq org-roam-graph-viewer "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
 
+;; Vertico - see: https://systemcrafters.cc/emacs-tips/streamline-completions-with-vertico/
+(use-package vertico
+  :ensure t
+  :init
+  (vertico-mode))
+
+(use-package savehist
+  :init
+  (savehist-mode))
+
+(use-package marginalia
+  :after vertico
+  :ensure t
+  :custom
+  (marginalia-annotators '(marginalia-annotators-heavy marginalia-annotators-light nil))
+  :init
+  (marginalia-mode))
+
+;; Try to fix orgmode ODT
+;; https://github.com/kjambunathan/org-mode-ox-odt
+(add-to-list 'package-archives
+	     '("ox-odt" . "https://kjambunathan.github.io/elpa/") t)
+
+;; Inelegant solution to remove org-links
+;; https://dev.to/mostalive/how-to-replace-an-org-mode-link-by-its-description-c70
+(defun org-replace-link-by-link-description ()
+  "Remove the link part of an org-mode link at point and keep
+    only the description"
+  (interactive)
+  (let ((elem (org-element-context)))
+    (if (eq (car elem) 'link)
+        (let* ((content-begin (org-element-property :contents-begin elem))
+               (content-end  (org-element-property :contents-end elem))
+               (link-begin (org-element-property :begin elem))
+               (link-end (org-element-property :end elem)))
+          (if (and content-begin content-end)
+              (let ((content (buffer-substring-no-properties content-begin content-end)))
+                (delete-region link-begin (- link-end 1))
+                (insert content)))))))
+
+;; https://github.com/gromnitsky/read-aloud.el
+(load-file "~/GIT/read-aloud.el/read-aloud.el")
+(setq read-aloud-engine "say")
