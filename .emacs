@@ -246,12 +246,19 @@ terminal-notifier-command
 (require 'stan-mode)
 
 ;; Some python things I use, you may not need
-(setq python-shell-interpreter "ipython3")
-(setq py-python-command "python3")
+;; Update 20220116 - deprecating to try to get to co-op with Python3
+;; (setq python-shell-interpreter "ipython3")
+;; (setq py-python-command "python3")
 
-(autoload 'python-mode "python-mode" "Python Mode." t)
+;; (autoload 'python-mode "python-mode" "Python Mode." t)
 (add-to-list 'auto-mode-alist '("\\.py\\'" . python-mode))
-(add-to-list 'interpreter-mode-alist '("python" . python-mode))
+;; (add-to-list 'interpreter-mode-alist '("python3" . python-mode))
+
+;; https://www.youtube.com/watch?v=jPXIP46BnNA
+(use-package python-mode
+  :ensure nil
+  :custom
+  (python-shell-interpreter "python3"))
 
 ;; (package-initialize)
 ;;(elpy-enable)
@@ -259,9 +266,9 @@ terminal-notifier-command
 ;;(elpy-use-ipython)
 
 ;; use flycheck not flymake with elpy
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
+;; (when (require 'flycheck nil t)
+;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
 
 ;; enable autopep8 formatting on save
 ;; (require py-autopep8)
