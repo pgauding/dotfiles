@@ -67,7 +67,20 @@ terminal-notifier-command
 (defun timed-notification (time msg)
   (interactive "sNotification when (e.g: 2 minutes, 60 seconds, 3 days): \nsMessage: ")
   (run-at-time time nil (lambda (msg) (terminal-notifier-notify "Emacs" msg)) msg))
+
 ;;;;Org mode configuration
+
+;; org-mac-iCal
+;; https://github.com/ndw/org-mac-iCal
+;; (load-file "~/GIT/org-mac-iCal/org-mac-iCal.el")
+;; (add-to-list 'org-modules 'org-mac-iCal)
+;; (setq org-agenda-include-diary t)
+
+;; (setq org-agenda-custom-commands
+;;       '(("I" "Import diary from iCal" agenda ""
+;;          ((org-agenda-mode-hook
+;;            (lambda ()
+;;              (org-mac-iCal)))))))
 
 ;; Enable Org mode
 (require 'org)
@@ -118,8 +131,10 @@ terminal-notifier-command
    '("~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/TODO.org"))
  '(org-babel-load-languages '((emacs-lisp . t) (R . t)))
  '(org-confirm-babel-evaluate nil)
+ '(org-mac-iCal-calendar-names '("iCloud" "KU Mail"))
+ '(org-mac-iCal-import-exchange t)
  '(package-selected-packages
-   '(org-roam org-ref deft linum-relative pdf-tools tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
+   '(org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative pdf-tools tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
