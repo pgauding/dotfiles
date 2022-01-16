@@ -13,6 +13,9 @@
 (add-hook 'prog-mode-hook 'linum-on)
 (setq pdf-view-midnight-colors '("#f6f3e8" . "#242424"))
 
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+
 (require 'vimish-fold)
 
 (desktop-save-mode 1)
