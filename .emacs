@@ -44,6 +44,29 @@
 
 (setq load-prefer-newer t)
 
+;; https://zhongweiy.github.io/blog/2016/02/03/solve-error-emacs-not-compiled-with-dbus-support/
+;; Terminal notifier 
+;; requires 'brew install terminal-notifier'
+;; stolen from erc-notifier
+
+(defvar terminal-notifier-command (executable-find "terminal-notifier") "/usr/local/bin/terminal-notifier")
+
+; (terminal-notifier-notify "Emacs notification" "Something amusing happened")
+
+(defun terminal-notifier-notify (title message)
+  "Show a message with 
+terminal-notifier-command
+."
+  (start-process "terminal-notifier"
+                 "terminal-notifier"
+                 terminal-notifier-command
+                 "-title" title
+                 "-message" message
+                 "-sender" "org.gnu.Emacs"))
+
+(defun timed-notification (time msg)
+  (interactive "sNotification when (e.g: 2 minutes, 60 seconds, 3 days): \nsMessage: ")
+  (run-at-time time nil (lambda (msg) (terminal-notifier-notify "Emacs" msg)) msg))
 ;;;;Org mode configuration
 
 ;; Enable Org mode
