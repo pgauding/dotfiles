@@ -85,8 +85,12 @@ terminal-notifier-command
 	("DELEGATED" . "#4dffff")
 	("CANCELED" . "#008080")))
 (setq org-indent-indentation-per-level 1)
+(setq org-clock-sound "~/dotfiles/ding.wav")
 (require 'org-bullets)
 (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(setq org-show-notification-handler
+      (lambda (msg) (timed-notification nil msg)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
