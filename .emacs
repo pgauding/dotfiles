@@ -138,10 +138,21 @@ terminal-notifier-command
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
  '(ns-auto-hide-menu-bar nil)
+ '(org-agenda-custom-commands
+   '(("n" "Agenda and all TODOs"
+      ((agenda "" nil)
+       (alltodo "" nil))
+      nil)))
  '(org-agenda-files
    '("~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/TODO.org"))
  '(org-babel-load-languages '((emacs-lisp . t) (R . t)))
  '(org-confirm-babel-evaluate nil)
+ '(org-file-apps
+   '((auto-mode . emacs)
+     (directory . emacs)
+     ("\\.mm\\'" . default)
+     ("\\.x?html?\\'" . default)
+     ("\\.pdf\\'" . emacs)))
  '(org-mac-iCal-calendar-names '("iCloud" "KU Mail"))
  '(org-mac-iCal-import-exchange t)
  '(package-selected-packages
