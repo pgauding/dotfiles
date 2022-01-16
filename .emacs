@@ -161,9 +161,11 @@ terminal-notifier-command
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
+ '(python-shell-completion-native-disabled-interpreters nil)
  '(scroll-bar-mode nil)
  '(send-mail-function 'mailclient-send-it)
- '(tool-bar-mode nil))
+ '(tool-bar-mode nil)
+ '(warning-suppress-types '((use-package))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
