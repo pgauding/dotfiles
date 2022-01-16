@@ -110,10 +110,21 @@ terminal-notifier-command
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(TeX-view-program-selection
+   '((output-dvi "PDF Tools")
+     (output-pdf "PDF Tools")
+     (output-html "open")))
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
    ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
+ '(bibtex-completion-format-citation-functions
+   '((org-mode . bibtex-completion-format-citation-org-link-to-PDF)
+     (latex-mode . bibtex-completion-format-citation-cite)
+     (markdown-mode . bibtex-completion-format-citation-pandoc-citeproc)
+     (python-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
+     (rst-mode . bibtex-completion-format-citation-sphinxcontrib-bibtex)
+     (default . bibtex-completion-format-citation-default)))
  '(blink-cursor-mode nil)
  '(cua-auto-tabify-rectangles nil)
  '(cua-mode t nil (cua-base))
