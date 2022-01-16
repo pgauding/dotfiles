@@ -109,6 +109,7 @@ terminal-notifier-command
    '("9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default))
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode nil)
+ '(gnutls-algorithm-priority "normal:-vers-tls1.3")
  '(line-number-mode nil)
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
@@ -611,3 +612,5 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
                  :prepend t
                  :kill-buffer t))
 )
+;; A setting to resolve not connecting to MELPA
+(setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3")
