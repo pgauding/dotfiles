@@ -36,3 +36,5 @@ fi
 
 export PATH=/panfs/pfs.local/work/crmda/tools/bin:$PATH
 source crmda_env.sh
+
+export PATH="~/Library/Python:${PATH}"
