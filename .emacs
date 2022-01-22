@@ -716,3 +716,13 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
 ;; https://github.com/gromnitsky/read-aloud.el
 (load-file "~/GIT/read-aloud.el/read-aloud.el")
 (setq read-aloud-engine "say")
+
+;; Attempting to set up lsp-mode
+;; https://www.youtube.com/watch?v=E-NAM9U5JYE
+
+(use-package lsp-mode
+  :commands (lsp lsp-deferred)
+  :init
+  (setq lsp-keymap-prefix "C-c l")
+  :config
+  (lsp-enable-which-key-integration t))
