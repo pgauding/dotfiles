@@ -275,7 +275,9 @@ terminal-notifier-command
   (python-shell-interpreter-args "-i --simple-prompt"))
 
 ;; (package-initialize)
-;;(elpy-enable)
+(elpy-enable) 
+;; https://github.com/jorgenschaefer/elpy/issues/1757
+(setq elpy-rpc-pythonpath (file-name-directory (locate-library "elpy")))
 ;; Deprecated
 ;;(elpy-use-ipython)
 
