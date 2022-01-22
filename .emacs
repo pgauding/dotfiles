@@ -133,7 +133,7 @@ terminal-notifier-command
    '("9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default))
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode nil)
- '(gnutls-algorithm-priority "normal:-vers-tls1.3")
+ '(gnutls-algorithm-priority "normal:-vers-tls1.3" t)
  '(line-number-mode nil)
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
@@ -156,12 +156,12 @@ terminal-notifier-command
  '(org-mac-iCal-calendar-names '("iCloud" "KU Mail"))
  '(org-mac-iCal-import-exchange t)
  '(package-selected-packages
-   '(org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative pdf-tools tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
+   '(which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative pdf-tools tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
  '(python-indent-offset 4)
- '(python-shell-completion-native-disabled-interpreters nil)
+ '(python-shell-completion-native-disabled-interpreters '("ipython"))
  '(scroll-bar-mode nil)
  '(send-mail-function 'mailclient-send-it)
  '(tool-bar-mode nil)
@@ -271,7 +271,8 @@ terminal-notifier-command
 (use-package python-mode
   :ensure nil
   :custom
-  (python-shell-interpreter "python3"))
+  (python-shell-interpreter "ipython")
+  (python-shell-interpreter-args "-i --simple-prompt"))
 
 ;; (package-initialize)
 ;;(elpy-enable)
