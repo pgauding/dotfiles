@@ -9,6 +9,9 @@
 ;; Try to fix 'AUCTex can't find TeX distribution thing
 (setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
 
+;; For custom themes
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+
 ;; org-present: https://github.com/rlister/org-present
 (add-to-list 'load-path "~/GIT/org-present")
 (autoload 'org-present "org-present" nil t)
