@@ -133,7 +133,7 @@ terminal-notifier-command
  '(cua-mode t nil (cua-base))
  '(custom-enabled-themes '(wombat))
  '(custom-safe-themes
-   '("9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default))
+   '("3b69ddebc3b1386c63e70afa0eca90d1a775c52ad144d16df932400f3afe1c30" "728f4c6074723658cf6497cf09b4918a6a93ff5a09332b715e8983dfba4e2e40" "969623ec31d614ba347cf0d47641d9d2829b57d9593a7b47c0887a5ea8202688" "3b050147ba211a3711c5421d8c98078b75e983261873548e36fe477d83443b56" "9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default))
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode nil)
  '(gnutls-algorithm-priority "normal:-vers-tls1.3" t)
