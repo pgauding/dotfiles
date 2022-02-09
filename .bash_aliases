@@ -140,6 +140,8 @@ alias console='open -a console'
 alias purge='sudo purge'
 alias preview='open -a preview'
 alias skim='open -a skim'
+alias idrive='open -a idrive'
+alias bt='btop'
 
 alias switchtozsh='chsh -s $(which zsh)'
 alias maps='telnet mapscii.me'
