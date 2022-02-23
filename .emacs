@@ -141,6 +141,8 @@ terminal-notifier-command
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
  '(ns-auto-hide-menu-bar nil)
+ '(olivetti-body-width nil)
+ '(olivetti-style 'fancy)
  '(org-agenda-custom-commands
    '(("n" "Agenda and all TODOs"
       ((agenda "" nil)
@@ -732,3 +734,7 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
   (setq lsp-keymap-prefix "C-c l")
   :config
   (lsp-enable-which-key-integration t))
+
+;; Olivetti mode
+(add-hook 'text-mode-hook 'olivetti-mode)
+
