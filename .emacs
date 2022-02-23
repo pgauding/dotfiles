@@ -136,7 +136,7 @@ terminal-notifier-command
    '("3b69ddebc3b1386c63e70afa0eca90d1a775c52ad144d16df932400f3afe1c30" "728f4c6074723658cf6497cf09b4918a6a93ff5a09332b715e8983dfba4e2e40" "969623ec31d614ba347cf0d47641d9d2829b57d9593a7b47c0887a5ea8202688" "3b050147ba211a3711c5421d8c98078b75e983261873548e36fe477d83443b56" "9685cefcb4efd32520b899a34925c476e7920725c8d1f660e7336f37d6d95764" "3860a842e0bf585df9e5785e06d600a86e8b605e5cc0b74320dfe667bcbe816c" default))
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode nil)
- '(gnutls-algorithm-priority "normal:-vers-tls1.3" t)
+ '(gnutls-algorithm-priority "normal:-vers-tls1.3")
  '(line-number-mode nil)
  '(markdown-command "/usr/local/bin/pandoc")
  '(menu-bar-mode t)
@@ -161,7 +161,7 @@ terminal-notifier-command
  '(org-mac-iCal-calendar-names '("iCloud" "KU Mail"))
  '(org-mac-iCal-import-exchange t)
  '(package-selected-packages
-   '(jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative pdf-tools tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
+   '(all-the-icons-completion all-the-icons unfill treemacs pdf-tools writeroom-mode olivetti jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
@@ -738,3 +738,7 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
 ;; Olivetti mode
 (add-hook 'text-mode-hook 'olivetti-mode)
 
+;; all-the-icons
+(when (display-graphic-p)
+  (require 'all-the-icons))
+(all-the-icons-completion-mode)
