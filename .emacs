@@ -736,7 +736,7 @@ this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
   (lsp-enable-which-key-integration t))
 
 ;; Olivetti mode
-(add-hook 'text-mode-hook 'olivetti-mode)
+(add-hook 'latex-mode-hook 'olivetti-mode)
 
 ;; all-the-icons
 (when (display-graphic-p)
