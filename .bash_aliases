@@ -164,3 +164,5 @@ alias obs='open -a obs'
 
 alias bi='brew install'
 alias bu='brew uninstall'
+
+alias 'omp=ocrmypdf'
