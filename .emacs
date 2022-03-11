@@ -676,3 +676,6 @@ terminal-notifier-command
 (when (display-graphic-p)
   (require 'all-the-icons))
 (all-the-icons-completion-mode)
+
+;; https://emacs.stackexchange.com/questions/32740/checkboxes-change-bullet-points-to-letters
+(setq org-list-allow-alphabetical t)
