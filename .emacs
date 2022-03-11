@@ -114,6 +114,7 @@ terminal-notifier-command
    '((output-dvi "PDF Tools")
      (output-pdf "PDF Tools")
      (output-html "open")))
+ '(ado-submit-default "include")
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
  '(ansi-color-names-vector
@@ -158,7 +159,7 @@ terminal-notifier-command
  '(org-mac-iCal-calendar-names '("iCloud" "KU Mail"))
  '(org-mac-iCal-import-exchange t)
  '(package-selected-packages
-   '(all-the-icons-completion all-the-icons unfill treemacs pdf-tools writeroom-mode olivetti jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
+   '(ado-mode all-the-icons-completion all-the-icons unfill treemacs pdf-tools writeroom-mode olivetti jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
@@ -428,70 +429,6 @@ terminal-notifier-command
 (setq comint-scroll-to-bottom-on-output t)
 (setq comint-move-point-for-output t)
 
-
-
-
-
-;; A stata stanza from Brendan Halpin
-
-;; Stata equivalent of ess-eval-region
-
-(defun delimit-do (start end toggle &optional clear message)
-  "Send the current region to the inferior ESS process, Stata do-editor style.
-Creates a temporary file, \"do\"-es it, deletes it.
-With prefix argument toggle the meaning of `ess-eval-visibly-p';
-this does not apply when using the S-plus GUI, see `ess-eval-region-ddeclient'."
-  (interactive "r\nP")
-  (ess-force-buffer-current "Process to use: ")
-  (message "Starting evaluation...")
-  (setq message (or message "Eval region"))
-
-  (save-excursion
-    ;; don't send new lines (avoid screwing the debugger)
-    (goto-char start)
-    (skip-chars-forward "\n\t ")
-    (setq start (point))
-
-    (unless mark-active
-      (ess-blink-region start end))
-
-    ;; don't send new lines at the end (avoid screwing the debugger)
-    (goto-char end)
-    (skip-chars-backward "\n\t ")
-    (setq end (point)))
-
-  (let* (delimit
-         (commands (buffer-substring-no-properties start end))
-         (delimit-do-file (make-temp-file "delimit-do" nil ".do"))
-         (proc (get-process ess-local-process-name))
-         (visibly (if toggle (not ess-eval-visibly-p) ess-eval-visibly-p))
-         (dev-p (process-get proc 'developer))
-         (tb-p  (process-get proc 'tracebug)))
-    ;; Go to the start of the section and look back for #delimit
-    ;; if found set delimit unless the delimiter is not ";"
-    (save-excursion
-      (goto-char start)
-      (setq delimit (re-search-backward "^#delimit +\\(.+\\)$" nil t))
-      (if delimit
-          (if (not (string-match ";" (match-string 1))) (setq delimit nil))))
-
-    (with-temp-buffer
-      (if clear (insert "clear\n"))
-      (if delimit (insert "#delimit ;\n"
-                          commands
-                          "\n#delimit cr\n")
-        (insert commands "\n"))
-      (write-file delimit-do-file nil)
-      (kill-buffer (current-buffer)))
-
-    (process-send-string
-     (get-ess-process ess-current-process-name)
-     (format "do %s\nrm %s\n" delimit-do-file delimit-do-file))
-    )
-  (if (and (fboundp 'deactivate-mark) ess-eval-deactivate-mark)
-      (deactivate-mark))
-  ;; return value
-  (list start end))
 
 ;; Trying to set up a Zettelkasen type system
 ;; https://rgoswami.me/posts/org-note-workflow/
