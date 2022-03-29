@@ -161,3 +161,7 @@ alias qt='open -a QuickTime\ Player.app'
 
 # http://www.faqs.org/faqs/unix-faq/shell/zsh/#ixzz0TyTJsHMq
 [[ $EMACS = t ]] && unsetopt zle
+
+# export aliases to emacs
+# https://www.emacswiki.org/emacs/EshellAlias
+#alias | sed 's/^alias //' | sed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | sed "s/'\\\\''/'/g" | sed "s/'\\\\$/'/;" | sed -E 's/^([^=]+)=(.+)$/alias \1 \2/' >~/.emacs.d/eshell/alias
