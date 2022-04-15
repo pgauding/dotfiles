@@ -166,3 +166,5 @@ alias bi='brew install'
 alias bu='brew uninstall'
 
 alias 'omp=ocrmypdf'
+
+alias 't-stream=python3 ~/GIT/t-stream/src/app.py'
