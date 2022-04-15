@@ -162,7 +162,7 @@ terminal-notifier-command
  '(org-mac-iCal-calendar-names '("iCloud" "KU Mail"))
  '(org-mac-iCal-import-exchange t)
  '(package-selected-packages
-   '(flyspell-correct vline ado-mode all-the-icons-completion all-the-icons unfill treemacs pdf-tools writeroom-mode olivetti jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide marginalia vertico org-roam-bibtex org-roam org-ref deft linum-relative tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro helm-R helm company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
+   '(move-text fancy-battery smartparens vertico marginalia helm-bibtex org-noter org-modern doom-modeline mood-line latex-extra flyspell-correct vline all-the-icons-completion unfill treemacs pdf-tools writeroom-mode olivetti jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide org-roam-bibtex org-roam org-ref deft linum-relative tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme org-bullets mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
@@ -318,7 +318,7 @@ terminal-notifier-command
 (setq select-active-regions t)
 ;; Trying to make mouse middle-click only paste from primary
 ;; X11 selection, not clipboard and kill ring:
-(global-set-key [mouse-2] 'mouse-yank-primary)
+;;(global-set-key [mouse-2] 'mouse-yank-primary)
 ;; highlight does not alter Kill ring:
 (setq mouse-drag-copy-region nil)
 ;; windows style binding C-x, C-v, C-c, C-z:
