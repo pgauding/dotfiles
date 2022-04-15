@@ -709,10 +709,27 @@ terminal-notifier-command
     ("Citeauthor" "[{")
     ("cians" "[{")
     ("citep" "[{)")
-    ("citepar" "[{")))
+    ("citepar" "[{")
+    ("citet" "[{")))
+
 ;; doom-modeline
 (use-package doom-modeline
   :ensure t
   :init (doom-modeline-mode 1))
 ;; (require 'doom-modeline-mode)
+;; auto-revert TeX pdfs
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
+
 (add-hook 'LaTeX-mode-hook #'olivetti-mode)
+(add-hook 'LaTeX-mode-hook #'latex-extra-mode)
+
+;; auto-revert
+(add-hook 'PDFview-mode-hook #'auto-revert-mode)
+
+;; smartparens
+(require 'smartparens-config)
+
+(add-hook 'LaTeX-mode-hook #'smartparens-mode)
+(add-hook 'python-mode #'smartparens-mode)
+(add-hook 'ess-mode #'smartparens-mode)
