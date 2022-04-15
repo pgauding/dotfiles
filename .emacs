@@ -717,6 +717,16 @@ terminal-notifier-command
   :ensure t
   :init (doom-modeline-mode 1))
 ;; (require 'doom-modeline-mode)
+
+;; Set ispell location
+(setq ispell-program-name "/usr/local/bin/ispell")
+
+;; Fix flyspell mouse-2 trackpad issue
+(eval-after-load "flyspell"
+    '(progn
+       (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
+       (define-key flyspell-mouse-map [mouse-3] #'undefined)))
+
 ;; auto-revert TeX pdfs
 (add-hook 'TeX-after-compilation-finished-functions
           #'TeX-revert-document-buffer)
