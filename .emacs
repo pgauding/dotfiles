@@ -114,6 +114,7 @@ terminal-notifier-command
    '((output-dvi "PDF Tools")
      (output-pdf "PDF Tools")
      (output-html "open")))
+ '(ado-stata-home "/Applications/Stata/")
  '(ado-submit-default "include")
  '(ansi-color-faces-vector
    [default default default italic underline success warning error])
