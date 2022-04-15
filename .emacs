@@ -743,3 +743,7 @@ terminal-notifier-command
 (add-hook 'LaTeX-mode-hook #'smartparens-mode)
 (add-hook 'python-mode #'smartparens-mode)
 (add-hook 'ess-mode #'smartparens-mode)
+
+;; display-battery
+(require 'display-battery-mode)
+
