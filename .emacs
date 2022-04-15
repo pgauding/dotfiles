@@ -669,9 +669,6 @@ terminal-notifier-command
   :config
   (lsp-enable-which-key-integration t))
 
-;; Olivetti mode
-(add-hook 'latex-mode-hook 'olivetti-mode)
-
 ;; all-the-icons
 (when (display-graphic-p)
   (require 'all-the-icons))
@@ -710,3 +707,4 @@ terminal-notifier-command
     ("cians" "[{")
     ("citep" "[{)")
     ("citepar" "[{")))
+(add-hook 'LaTeX-mode-hook #'olivetti-mode)
