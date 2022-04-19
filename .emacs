@@ -746,7 +746,7 @@ terminal-notifier-command
 (add-hook 'ess-mode #'smartparens-mode)
 
 ;; display-battery
-(require 'display-battery-mode)
+;;(require 'display-battery-mode)
 
 ;; move-text
 (require 'move-text)
