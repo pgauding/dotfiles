@@ -186,6 +186,7 @@ terminal-notifier-command
 (global-set-key (kbd "M-p") 'ace-window)
 
 (require 'magit)
+(global-set-key (kbd "C-x g") 'magit)
 
 (setq column-number-mode t)
 
