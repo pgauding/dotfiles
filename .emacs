@@ -752,3 +752,5 @@ terminal-notifier-command
 ;; move-text
 (require 'move-text)
 
+;; bind org-agenda for convenience
+(global-set-key (kbd "C-c a") 'org-agenda)
