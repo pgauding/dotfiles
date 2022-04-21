@@ -165,3 +165,6 @@ alias qt='open -a QuickTime\ Player.app'
 # export aliases to emacs
 # https://www.emacswiki.org/emacs/EshellAlias
 #alias | sed 's/^alias //' | sed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | sed "s/'\\\\''/'/g" | sed "s/'\\\\$/'/;" | sed -E 's/^([^=]+)=(.+)$/alias \1 \2/' >~/.emacs.d/eshell/alias
+
+# Emacs as EDITOR
+export EDITOR=emacsclient
