@@ -754,3 +754,6 @@ terminal-notifier-command
 
 ;; bind org-agenda for convenience
 (global-set-key (kbd "C-c a") 'org-agenda)
+
+;; bind avy-goto-char-timer to M-j
+(global-set-key (kbd "M-j") 'avy-goto-char-timer)
