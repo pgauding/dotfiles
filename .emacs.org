@@ -1,3 +1,24 @@
+#+TITLE: Gauding .emacs
+#+AUTHOR: Patrick J. Gauding
+#+EMAIL: <patrick.gauding@gmail.com>
+#+STARTUP: showeverything
+
+* TABLE OF CONETNENTS                                                   :toc:
+- [[#appearance][APPEARANCE]]
+
+* APPEARANCE                                                     :appearance:
+* BIBTEX                                                             :bibtex:
+* BUFFERS                                                           :buffers:
+* DIRED                                                               :dired:
+* GIT                                                                   :git:
+* MISCELLANEOUS                                               :miscellaneous:
+* ORGMODE                                                           :orgmode:
+* PACKAGE MANAGEMENT                                                :package:
+* R                                                                       :R:
+* STAN                                                                 :stan:
+* PYTHON                                                             :python:
+* SHELLS                                                             :shells:
+
 ;;(package-initialize)
 
 ;; Not necessary in Emacs 27
