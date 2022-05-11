@@ -3,16 +3,80 @@
 #+EMAIL: <patrick.gauding@gmail.com>
 #+STARTUP: showeverything
 
-* TABLE OF CONETNENTS                                                   :toc:
+* TABLE OF CONTENTS                                                   :toc:
 - [[#appearance][APPEARANCE]]
 
 * APPEARANCE                                                     :appearance:
 * BIBTEX                                                             :bibtex:
 * BUFFERS                                                           :buffers:
+#+begin_src emacs-lisp
+  (global-set-key (kbd "C-x C-b") 'ibuffer)
+#+end_src
 * DIRED                                                               :dired:
 * GIT                                                                   :git:
 * MISCELLANEOUS                                               :miscellaneous:
 * ORGMODE                                                           :orgmode:
+** org-mode
+#+begin_src emacs-lisp
+(require 'org)
+;; Make Org mode work with files ending in .org
+;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+;; The above is the default in recent emacsen
+(setq org-log-done 'time)
+(setq org-todo-keywords
+      '((sequence "TODO" "IN PROGRESS" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
+(setq org-todo-keyword-faces
+      '(;;("TODO" . (:foreground "#FA8072" :weight bold))
+	("IN PROGRESS" . "#E35DBF")
+	("WAITING" . "#e6e600")
+	("FEEDBACK" . "#cccc00")
+	("DELEGATED" . "#4dffff")
+	("CANCELED" . "#008080")))
+(setq org-indent-indentation-per-level 1)
+(setq org-clock-sound "~/dotfiles/ding.wav")
+(require 'org-bullets)
+(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(setq org-show-notification-handler
+      (lambda (msg) (timed-notification nil msg)))
+#+end_src
+
+** org-mac-iCal
+#+begin_src emacs-lisp
+  ;; https://github.com/ndw/org-mac-iCal
+  ;; (load-file "~/GIT/org-mac-iCal/org-mac-iCal.el")
+  ;; (add-to-list 'org-modules 'org-mac-iCal)
+  ;; (setq org-agenda-include-diary t)
+
+  ;; (setq org-agenda-custom-commands
+  ;;       '(("I" "Import diary from iCal" agenda ""
+  ;;          ((org-agenda-mode-hook
+  ;;            (lambda ()
+  ;;              (org-mac-iCal)))))))
+
+#+end_src
+
+** org-present:
+https://github.com/rlister/org-present
+#+begin_src emacs-lisp
+  (add-to-list 'load-path "~/GIT/org-present")
+  (autoload 'org-present "org-present" nil t)
+
+  (eval-after-load "org-present"
+    '(progn
+       (add-hook 'org-present-mode-hook
+		 (lambda ()
+		   (org-present-big)
+		   (org-display-inline-images)
+		   (org-present-hide-cursor)
+		   (org-present-read-only)))
+       (add-hook 'org-present-mode-quit-hook
+		 (lambda ()
+		   (org-present-small)
+		   (org-remove-inline-images)
+		   (org-present-show-cursor)
+		   (org-present-read-write)))))
+#+end_src
 * PACKAGE MANAGEMENT                                                :package:
 * R                                                                       :R:
 * STAN                                                                 :stan:
@@ -33,30 +97,9 @@
 ;; For custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-;; org-present: https://github.com/rlister/org-present
-(add-to-list 'load-path "~/GIT/org-present")
-(autoload 'org-present "org-present" nil t)
-
-(eval-after-load "org-present"
-  '(progn
-     (add-hook 'org-present-mode-hook
-               (lambda ()
-                 (org-present-big)
-                 (org-display-inline-images)
-                 (org-present-hide-cursor)
-                 (org-present-read-only)))
-     (add-hook 'org-present-mode-quit-hook
-               (lambda ()
-                 (org-present-small)
-                 (org-remove-inline-images)
-                 (org-present-show-cursor)
-                 (org-present-read-write)))))
-
 (pdf-tools-install)
 (add-hook 'prog-mode-hook 'linum-on)
 (setq pdf-view-midnight-colors '("#f6f3e8" . "#242424"))
-
-(global-set-key (kbd "C-x C-b") 'ibuffer)
 
 (desktop-save-mode 1)
 ;; Need to have to to ensure title-bar can be read with desktop-save-mode enabled
@@ -88,43 +131,6 @@ terminal-notifier-command
 (defun timed-notification (time msg)
   (interactive "sNotification when (e.g: 2 minutes, 60 seconds, 3 days): \nsMessage: ")
   (run-at-time time nil (lambda (msg) (terminal-notifier-notify "Emacs" msg)) msg))
-
-;;;;Org mode configuration
-
-;; org-mac-iCal
-;; https://github.com/ndw/org-mac-iCal
-;; (load-file "~/GIT/org-mac-iCal/org-mac-iCal.el")
-;; (add-to-list 'org-modules 'org-mac-iCal)
-;; (setq org-agenda-include-diary t)
-
-;; (setq org-agenda-custom-commands
-;;       '(("I" "Import diary from iCal" agenda ""
-;;          ((org-agenda-mode-hook
-;;            (lambda ()
-;;              (org-mac-iCal)))))))
-
-;; Enable Org mode
-(require 'org)
-;; Make Org mode work with files ending in .org
-;; (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-;; The above is the default in recent emacsen
-(setq org-log-done 'time)
-(setq org-todo-keywords
-      '((sequence "TODO" "IN PROGRESS" "WAITING" "FEEDBACK" "|" "DONE" "DELEGATED" "CANCELED")))
-(setq org-todo-keyword-faces
-      '(;;("TODO" . (:foreground "#FA8072" :weight bold))
-	("IN PROGRESS" . "#E35DBF")
-	("WAITING" . "#e6e600")
-	("FEEDBACK" . "#cccc00")
-	("DELEGATED" . "#4dffff")
-	("CANCELED" . "#008080")))
-(setq org-indent-indentation-per-level 1)
-(setq org-clock-sound "~/dotfiles/ding.wav")
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
-
-(setq org-show-notification-handler
-      (lambda (msg) (timed-notification nil msg)))
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -805,7 +811,7 @@ terminal-notifier-command
 (add-hook 'PDFview-mode-hook #'auto-revert-mode)
 
 ;; smartparens
-(require 'smartparens-config)
+(require 'smartparens-mode)
 
 (add-hook 'LaTeX-mode-hook 'org-mode-hook #'smartparens-mode)
 (add-hook 'python-mode #'smartparens-mode)
