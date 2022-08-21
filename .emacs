@@ -469,7 +469,7 @@ terminal-notifier-command
   :custom
   (setq
    org_notes (concat (getenv "HOME") "/org-roam")
-   zot_bib (concat (getenv "HOME") "/Documents/research/dissertation/bib/gauding-diss.bib")
+   zot_bib (concat (getenv "HOME") "/Documents/research/bib/gauding-full.bib")
    org-directory org_notes
    deft-directory org_notes
    org-roam-directory org_notes
@@ -522,7 +522,7 @@ terminal-notifier-command
 
 (setq
  bibtex-completion-notes-path (concat (getenv "HOME") "/org-roam")
- bibtex-completion-bibliography (concat (getenv "HOME") "/Documents/research/dissertation/bib/gauding-diss.bib")
+ bibtex-completion-bibliography (concat (getenv "HOME") "/Documents/research/bib/gauding-full.bib")
 ;; bibtex-completion-library-path "~/Zotero/"
  bibtex-completion-pdf-field "file"
  bibtex-completion-notes-template-multiple-files
@@ -551,7 +551,7 @@ terminal-notifier-command
     (setq
          org-ref-completion-library 'org-ref-ivy-cite
          org-ref-get-pdf-filename-function 'org-ref-get-pdf-filename-helm-bibtex
-         org-ref-default-bibliography (list  (concat (getenv "HOME") "/Documents/research/dissertation/bib/gauding-diss.bib"))
+         org-ref-default-bibliography (list  (concat (getenv "HOME") "/Documents/research/bib/gauding-full.bib"))
          org-ref-bibliography-notes  (concat (getenv "HOME") "/org-roam/bibnotes.org")
          org-ref-note-title-format "* TODO %y - %t\n :PROPERTIES:\n  :Custom_ID: %k\n  :NOTER_DOCUMENT: %F\n :ROAM_KEY: cite:%k\n  :AUTHOR: %9a\n  :JOURNAL: %j\n  :YEAR: %y\n  :VOLUME: %v\n  :PAGES: %p\n  :DOI: %D\n  :URL: %U\n :END:\n\n"
          org-ref-notes-directory (concat (getenv "HOME") "/org-roam")
