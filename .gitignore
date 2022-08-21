@@ -2,3 +2,9 @@
 *#.*#
 
 .Rhistory
+.emacs.desktop
+.offlineimaprc
+
+ding.wav
+
+profile-dotemacs.el
