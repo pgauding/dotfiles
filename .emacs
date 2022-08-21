@@ -271,6 +271,8 @@ terminal-notifier-command
 ;;              '("elpy" . "http://jorgenschaefer.github.io/packages/" t))
 ;; (add-to-list 'package-archives
 ;; 	     '("melpa" . "http://melpa.org/packages/") t))
+(add-to-list 'package-archives '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
+
 
 (require 'stan-mode)
 
