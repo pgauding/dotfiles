@@ -425,6 +425,9 @@ terminal-notifier-command
 
 ;; adjust the size of the frames, uncomment this, adjust values
 (setq default-frame-alist '((width . 90) (height . 65)))
+;; Transparent titlebar on macOS.
+(add-to-list 'default-frame-alist '(ns-transparent-titlebar . t))
+(add-to-list 'default-frame-alist '(ns-appearance . dark))
 
 
 ;; Remember password when connected to remote sites via Tramp
