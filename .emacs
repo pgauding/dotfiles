@@ -159,7 +159,7 @@ terminal-notifier-command
        (alltodo "" nil))
       nil)))
  '(org-agenda-files
-   '("~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/TODO.org"))
+   '("~/Library/Mobile Documents/iCloud~com~appsonthemove~beorg/Documents/org/TODO.org" "/Users/patrickgauding/Documents/research/admin/TODO-summer-2022.org" "/Users/patrickgauding/Documents/research/dissertation/TODO/final-formatting.org" "/Users/patrickgauding/Documents/research/dissertation/TODO/diffusion-TODO.org" "/Users/patrickgauding/Documents/research/dissertation/TODO/PO-TODO.org" "/Users/patrickgauding/Documents/research/dissertation/TODO/admin-TODO.org"))
  '(org-babel-load-languages '((emacs-lisp . t) (R . t)))
  '(org-confirm-babel-evaluate nil)
  '(org-file-apps
