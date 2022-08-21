@@ -12,6 +12,7 @@
 ;; For custom themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
+(add-to-list 'load-path "~/GIT/")
 ;; org-present: https://github.com/rlister/org-present
 (add-to-list 'load-path "~/GIT/org-present")
 (autoload 'org-present "org-present" nil t)
