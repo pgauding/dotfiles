@@ -100,8 +100,13 @@ terminal-notifier-command
 	("CANCELED" . "#008080")))
 (setq org-indent-indentation-per-level 1)
 (setq org-clock-sound "~/dotfiles/ding.wav")
-(require 'org-bullets)
-(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+
+(require 'org-superstar)
+(add-hook 'org-mode-hook (lambda () (org-superstar-mode 1)))
+;; (add-hook 'org-mode-hook 'org-superstar-mode)
+
+;; (use-package org-superstar
+;;   :hook (org-mode . org-superstar-mode))
 
 (setq org-show-notification-handler
       (lambda (msg) (timed-notification nil msg)))
