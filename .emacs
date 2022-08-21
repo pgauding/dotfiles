@@ -143,6 +143,7 @@ terminal-notifier-command
  '(display-fill-column-indicator-column 80)
  '(doom-modeline-continuous-word-count-modes '(markdown-mode gfm-mode org-mode latex-mode))
  '(doom-modeline-enable-word-count t)
+ '(elfeed-feeds '("https://www.reddit.com/r/emacs/"))
  '(elpy-rpc-python-command "python3")
  '(global-linum-mode nil)
  '(gnutls-algorithm-priority "normal:-vers-tls1.3")
