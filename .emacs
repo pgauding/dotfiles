@@ -120,6 +120,7 @@ terminal-notifier-command
    '((output-dvi "PDF Tools")
      (output-pdf "PDF Tools")
      (output-html "open")))
+ '(ado-stata-flavor "StataBE")
  '(ado-stata-home "/Applications/Stata/")
  '(ado-submit-default "include")
  '(ansi-color-faces-vector
