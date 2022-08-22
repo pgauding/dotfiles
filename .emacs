@@ -817,3 +817,10 @@ terminal-notifier-command
 
 ;; all-the-icons-dired
 (add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
+
+;; Macros
+(fset 'new-beamer-slide
+   (kmacro-lambda-form [?\\ ?b ?e ?g ?i ?n ?\{ ?f ?r ?a ?m ?e ?\}
+   ?\{ right return return ?\\ ?e ?n ?d ?\{ ?f ?r ?a ?m ?e tab up
+   up right right right right] 0 "%d"))
+
