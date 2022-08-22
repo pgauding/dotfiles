@@ -811,3 +811,6 @@ terminal-notifier-command
 
 ;; bind avy-goto-char-timer to M-j
 (global-set-key (kbd "M-j") 'avy-goto-char-timer)
+
+;; elfeed
+(global-set-key (kbd "C-x w") 'elfeed)
