@@ -799,6 +799,7 @@ terminal-notifier-command
 (add-hook 'python-mode #'smartparens-mode)
 (add-hook 'ess-mode #'smartparens-mode)
 (add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+(add-hook 'Shell-script #'smartparens-mode)
 
 ;; display-battery
 ;;(require 'display-battery-mode)
