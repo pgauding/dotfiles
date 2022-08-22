@@ -814,3 +814,6 @@ terminal-notifier-command
 
 ;; elfeed
 (global-set-key (kbd "C-x w") 'elfeed)
+
+;; all-the-icons-dired
+(add-hook 'dired-mode-hook 'all-the-icons-dired-mode)
