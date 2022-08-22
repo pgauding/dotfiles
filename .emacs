@@ -680,13 +680,51 @@ terminal-notifier-command
 
 ;; Attempting to set up lsp-mode
 ;; https://www.youtube.com/watch?v=E-NAM9U5JYE
+;; (use-package lsp-mode
+;;   :init
+;;   ;; set prefix for lsp-command-keymap (few alternatives - "C-l", "C-c l")
+;;   (setq lsp-keymap-prefix "C-c l")
+;;   :config
+;;   (lsp-register-custom-settings
+;;    '(("pyls.plugins.pyls_mypy.enabled" t t)
+;;      ("pyls.plugins.pyls_mypy.live_mode" nil t)
+;;      ("pyls.plugins.pyls_black.enabled" t t)
+;;      ("pyls.plugins.pyls_isort.enabled" t t)
+;;      ("pyls.plugins.flake8.enabled" t t)))
+;;   :hook (;; replace XXX-mode with concrete major-mode(e. g. python-mode)
+;;          (python-mode . lsp)
+;; 	 (ess-mode . lsp)
+;;          ;; if you want which-key integration
+;;          (lsp-mode . lsp-enable-which-key-integration))
+;;   :commands lsp)
 
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :init
-  (setq lsp-keymap-prefix "C-c l")
-  :config
-  (lsp-enable-which-key-integration t))
+;; ;; optionally
+;; (use-package lsp-ui
+;;   :commands lsp-ui-mode
+;;   :config (setq lsp-ui-sideline-show-hover t
+;;                 lsp-ui-sideline-delay 0.5
+;;                 lsp-ui-doc-delay 5
+;;                 lsp-ui-sideline-ignore-duplicates t
+;;                 lsp-ui-doc-position 'bottom
+;;                 lsp-ui-doc-alignment 'frame
+;;                 lsp-ui-doc-header nil
+;;                 lsp-ui-doc-include-signature t
+;;                 lsp-ui-doc-use-childframe t))
+
+;; ;; if you are helm user
+;; (use-package helm-lsp :commands helm-lsp-workspace-symbol)
+;; ;; if you are ivy user
+;; (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+;; (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+;; ;; optionally if you want to use debugger
+;; (use-package dap-mode)
+;; ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
+
+;; ;; optional if you want which-key integration
+;; (use-package which-key
+;;     :config
+;;     (which-key-mode))
 
 ;; all-the-icons
 (when (display-graphic-p)
