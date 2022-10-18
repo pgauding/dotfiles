@@ -142,6 +142,7 @@ alias preview='open -a preview'
 alias skim='open -a skim'
 alias idrive='open -a idrive'
 alias bt='btop'
+alias rn='random number'
 
 alias switchtozsh='chsh -s $(which zsh)'
 alias maps='telnet mapscii.me'
