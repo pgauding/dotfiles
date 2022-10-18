@@ -33,7 +33,8 @@ options(width = 80)
 ## Set Repositories
 local({
 	 r = getOption("repos")
-	 r["CRAN"] <- "https://mirrors.nics.utk.edu/cran"
+	 r["CRAN"] <- "https://cran.case.edu/"
+	 # r["CRAN"] <- "https://mirrors.nics.utk.edu/cran"
 #	 r["CRAN"] <- "https://rweb.crmda.ku.edu/cran"
 #	 r["KRAN"] <- "https://rweb.crmda.ku.edu/kran"
 	 options(repos = r)
