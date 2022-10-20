@@ -100,7 +100,7 @@ alias zt='cd ~/Documents/teaching'
 alias finance='cd ~/Documents/finance'
 
 ## Applications
-alias reader='open -a "Adobe Acrobat Reader DC"'
+alias reader='open -a "Adobe Acrobat Reader"'
 alias weather='ansiweather -l Lawrence,US -u imperial'
 alias textmate='open -a textmate'
 alias stata='open -a statabe'
