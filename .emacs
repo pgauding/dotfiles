@@ -828,7 +828,7 @@ terminal-notifier-command
 ;; mu4e
 ;; initial set-up from https://macowners.club/posts/email-emacs-mu4e-macos/
 (use-package mu4e
-  :load-path "/usr/local/Cellar/mu/1.8.9/share/emacs/site-lisp/mu/mu4e/")
+  :load-path "/usr/local/Cellar/mu/1.8.13/share/emacs/site-lisp/mu/mu4e/")
 
 (setq mail-user-agent 'mu4e-user-agent)
 
