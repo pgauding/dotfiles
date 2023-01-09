@@ -96,6 +96,7 @@ alias jobm='cd ~/Documents/jobmarket'
 alias data='cd ~/Documents/data'
 alias zr='cd ~/Documents/research'
 alias zt='cd ~/Documents/teaching'
+alias zs='cd ~/Documents/service'
 
 alias finance='cd ~/Documents/finance'
 
