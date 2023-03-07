@@ -38,7 +38,7 @@
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; (desktop-save-mode 1)
+(desktop-save-mode 1)
 ;; Need to have to to ensure title-bar can be read with desktop-save-mode enabled
 ;;(add-to-list 'frameset-filter-alist '(ns-transparent-titlebar . :never))
 (add-to-list 'frameset-filter-alist '(ns-appearance . :never))
