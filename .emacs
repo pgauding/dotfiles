@@ -69,6 +69,26 @@ terminal-notifier-command
   (interactive "sNotification when (e.g: 2 minutes, 60 seconds, 3 days): \nsMessage: ")
   (run-at-time time nil (lambda (msg) (terminal-notifier-notify "Emacs" msg)) msg))
 
+;; auto-revert TeX pdfs
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
+
+(add-hook 'TeX-mode-hook #'olivetti-mode)
+(add-hook 'TeX-mode-hook #'latex-extra-mode)
+
+;; auto-revert
+(add-hook 'PDFview-mode-hook #'auto-revert-mode)
+
+;; smartparens
+(require 'smartparens-config)
+
+(add-hook 'TeX-mode-hook #'smartparens-mode)
+(add-hook 'org-mode-hook #'smartparens-mode)
+(add-hook 'python-mode #'smartparens-mode)
+(add-hook 'ess-mode #'smartparens-mode)
+(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
+(add-hook 'Shell-script #'smartparens-mode)
+
 ;;;;Org mode configuration
 
 ;; org-mac-iCal
@@ -781,25 +801,25 @@ terminal-notifier-command
        (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
        (define-key flyspell-mouse-map [mouse-3] #'undefined)))
 
-;; auto-revert TeX pdfs
-(add-hook 'TeX-after-compilation-finished-functions
-          #'TeX-revert-document-buffer)
+;; ;; auto-revert TeX pdfs
+;; (add-hook 'TeX-after-compilation-finished-functions
+;;           #'TeX-revert-document-buffer)
 
-(add-hook 'LaTeX-mode-hook #'olivetti-mode)
-(add-hook 'LaTeX-mode-hook #'latex-extra-mode)
+;; (add-hook 'LaTeX-mode-hook 'olivetti-mode)
+;; (add-hook 'LaTeX-mode-hook 'latex-extra-mode)
 
-;; auto-revert
-(add-hook 'PDFview-mode-hook #'auto-revert-mode)
+;; ;; auto-revert
+;; (add-hook 'PDFview-mode-hook #'auto-revert-mode)
 
-;; smartparens
-(require 'smartparens-config)
+;; ;; smartparens
+;; (require 'smartparens-config)
 
-(add-hook 'LaTeX-mode-hook #'smartparens-mode)
-(add-hook 'org-mode-hook #'smartparens-mode)
-(add-hook 'python-mode #'smartparens-mode)
-(add-hook 'ess-mode #'smartparens-mode)
-(add-hook 'emacs-lisp-mode-hook #'smartparens-mode)
-(add-hook 'Shell-script #'smartparens-mode)
+;; (add-hook 'LaTeX-mode-hook 'smartparens-mode)
+;; (add-hook 'org-mode-hook 'smartparens-mode)
+;; (add-hook 'python-mode 'smartparens-mode)
+;; (add-hook 'ess-mode 'smartparens-mode)
+;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+;; (add-hook 'Shell-script 'smartparens-mode)
 
 ;; display-battery
 ;;(require 'display-battery-mode)
