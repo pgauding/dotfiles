@@ -783,6 +783,9 @@ terminal-notifier-command
 ;; https://tex.stackexchange.com/questions/364361/how-to-set-syntax-highlighting-for-citep-as-same-as-cite-in-auctex
 (setq TeX-parse-self t)
 
+(unless (image-type-available-p 'xpm)
+  (setq LaTeX-enable-toolbar nil))
+
 (setq font-latex-match-reference-keywords
   '(
     ("citeauthor" "[{")
@@ -1148,3 +1151,6 @@ terminal-notifier-command
   (add-hook 'LaTeX-mode-hook 'tex-procress-mode)
   :config
   (procress-load-default-svg-images))
+
+(setq org-odt-preferred-output-format "doc")
+
