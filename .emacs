@@ -192,7 +192,7 @@ terminal-notifier-command
  '(org-mac-iCal-import-exchange t)
  '(org-support-shift-select t)
  '(package-selected-packages
-   '(dirvish org-mime mu4e-marker-icons mu4e-views esup org-superstar org-msg lorem-ipsum modus-themes pandoc-mode diredful command-log-mode org-bullets buffer-move imenu-list all-the-icons-dired elfeed hyperbole lsp-ui latex-extra move-text fancy-battery smartparens vertico marginalia helm-bibtex org-noter org-modern doom-modeline mood-line flyspell-correct vline all-the-icons-completion unfill treemacs pdf-tools writeroom-mode olivetti jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide org-roam-bibtex org-roam org-ref deft linum-relative tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
+   '(puni quarto-mode dirvish org-mime mu4e-marker-icons mu4e-views esup org-superstar org-msg lorem-ipsum modus-themes pandoc-mode diredful command-log-mode org-bullets buffer-move imenu-list all-the-icons-dired elfeed hyperbole lsp-ui latex-extra move-text fancy-battery smartparens vertico marginalia helm-bibtex org-noter org-modern doom-modeline mood-line flyspell-correct vline all-the-icons-completion unfill treemacs pdf-tools writeroom-mode olivetti jupyter origami which-key org-caldav flycheck-stan flycheck lsp-mode folding lua-mode ox-odt org-tree-slide org-roam-bibtex org-roam org-ref deft linum-relative tablist company-jedi jedi elpy iedit python-mode exec-path-from-shell org-pomodoro company-auctex auctex company ess binder vterm use-package magit neotree org-cua-dwim org-beautify-theme mbsync offlineimap engine-mode anaconda-mode synosaurus god-mode gnu-elpa-keyring-update poly-R poly-markdown polymode julia-shell julia-repl julia-mode markdown-mode ein stan-snippets stan-mode ace-window grandshell-theme))
  '(python-guess-indent nil)
  '(python-indent 4)
  '(python-indent-guess-indent-offset nil)
@@ -383,6 +383,12 @@ terminal-notifier-command
    (define-key ess-mode-map [(control return)] nil)
    (define-key ess-mode-map [(shift return)] 'ess-eval-region-or-line-and-step))
 )
+
+;; Quarto
+(require 'quarto-mode)
+(use-package quarto-mode
+  :mode (("\\.Rmd" . poly-quarto-mode))
+  )
 
 ;; Help in frames? Consider
 ;; 1) create a new frame for each help instance
