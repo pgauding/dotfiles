@@ -1,3 +1,19 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# https://gist.github.com/ctechols/ca1035271ad134841284
+if [ "$(find ~/.zcompdump -mtime 1)" ] ; then
+    compinit
+fi
+#compinit -C
+
+#skip_global_compinit=1
+zmodload zsh/zprof
+
 export TERM="xterm-256color"
 
 export LC_CTYPE="UTF-8"
@@ -13,8 +29,9 @@ export ZSH="/Users/patrickgauding/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # ZSH_THEME="agnoster"
-ZSH_THEME="agnosterzak"
+# ZSH_THEME="agnosterzak"
 # ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -73,6 +90,9 @@ plugins=(
     colored-man-pages
     git
     macos
+    z
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -99,7 +119,7 @@ export PATH="/usr/local/sbin:$PATH"
 # export ARCHFLAGS="-arch x86_64"
 
 # ssh
-export SSH_KEY_PATH="~/.ssh/pg_20180125"
+export SSH_KEY_PATH="~/.ssh/id_ed25519"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -117,9 +137,9 @@ alias zshedit='em ~/.zshrc'
 # Not necessary due to zsh_reload
 #alias zshreload='source ~/.zshrc'
 alias switchtobash='chsh -s /bin/bash'
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/local/etc/profile.d/z.sh
+# source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/local/etc/profile.d/z.sh
 
 # # >>> conda initialize >>>
 # # !! Contents within this block are managed by 'conda init' !!
@@ -150,11 +170,11 @@ kitty + complete setup zsh | source /dev/stdin
 # alias lt='ls -lahtF'
 # alias lo='ls -l'
 
-# Switch to exa
-alias ls='exa -alg --color=always' # my preferred listing
+# Switch to eza
+alias ls='eza -alg --color=always' # my preferred listing
 alias sl='ls'
-alias lt='exa -alg --sort=modified'
-alias lT='exa -aT --color=always' # tree listing
+alias lt='eza -alg --sort=modified'
+alias lT='eza -aT --color=always' # tree listing
 
 # aliases
 alias qt='open -a QuickTime\ Player.app'
@@ -169,4 +189,9 @@ alias qt='open -a QuickTime\ Player.app'
 #alias | sed 's/^alias //' | sed -E "s/^([^=]+)='(.+?)'$/\1=\2/" | sed "s/'\\\\''/'/g" | sed "s/'\\\\$/'/;" | sed -E 's/^([^=]+)=(.+)$/alias \1 \2/' >~/.emacs.d/eshell/alias
 
 # Emacs as EDITOR
-export EDITOR=emacsclient
+export EDITOR=emacs
+
+#zprof
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
