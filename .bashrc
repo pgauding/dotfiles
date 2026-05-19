@@ -38,3 +38,7 @@ export PATH=/panfs/pfs.local/work/crmda/tools/bin:$PATH
 source crmda_env.sh
 
 export PATH="~/Library/Python:${PATH}"
+
+. "$HOME/.local/bin/env"
+
+alias claude-mem='/Users/patrickgauding/.bun/bin/bun "/Users/patrickgauding/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'

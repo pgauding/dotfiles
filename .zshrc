@@ -6,9 +6,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # https://gist.github.com/ctechols/ca1035271ad134841284
-if [ "$(find ~/.zcompdump -mtime 1)" ] ; then
-    compinit
-fi
+# if [ "$(find ~/.zcompdump -mtime 1)" ] ; then
+#     compinit
+# fi
 #compinit -C
 
 #skip_global_compinit=1
@@ -178,6 +178,22 @@ alias lT='eza -aT --color=always' # tree listing
 
 # aliases
 alias qt='open -a QuickTime\ Player.app'
+alias fp='/Users/patrickgauding/GIT/first-pass/.venv/bin/first-pass'
+alias cite-check='/Users/patrickgauding/GIT/citation-detection/.venv/bin/cite-check'
+alias apsa-check='/Users/patrickgauding/GIT/APSA-check/.venv/bin/apsa-check'
+alias fopen='for f in *.pdf; do open "$f"; sleep 0.5; done'
+
+# Move newest file from ~/Downloads to current dir, renaming to $1
+mvlatest() { mv ~/Downloads/*(.om[1]) ./"$1" }
+
+# Pause Google Drive during git operations to reduce I/O friction
+function git() {
+    killall -STOP "Google Drive" 2>/dev/null
+    command git "$@"
+    local ret=$?
+    killall -CONT "Google Drive" 2>/dev/null
+    return $ret
+}
 #export PATH="/usr/local/opt/ruby/bin:/usr/local/lib/ruby/gems/3.0.0/bin:$PATH"
 #export PATH="$HOME/.gem/ruby/3.0.0/bin:$PATH"
 
@@ -192,6 +208,20 @@ alias qt='open -a QuickTime\ Player.app'
 export EDITOR=emacs
 
 #zprof
+export PKG_CONFIG_PATH="$(brew --prefix nss)/lib/pkgconfig:$(brew --prefix poppler)/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="$(brew --prefix libtiff)/lib/pkgconfig:$(brew --prefix poppler)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+export PATH="/usr/local/opt/texinfo/bin:$PATH"
+
+# bun completions
+[ -s "/Users/patrickgauding/.bun/_bun" ] && source "/Users/patrickgauding/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.local/bin/env"
+
+alias claude-mem='/Users/patrickgauding/.bun/bin/bun "/Users/patrickgauding/.claude/plugins/marketplaces/thedotmack/plugin/scripts/worker-service.cjs"'

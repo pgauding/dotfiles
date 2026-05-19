@@ -6,6 +6,8 @@
 ;; Remove annoying warning in Emacs 27
 ;;(setq byte-compile warnings '(cl-functions))
 
+(setq insert-directory-program "gls")
+
 ;; Try to fix 'AUCTex can't find TeX distribution thing
 (setenv "PATH" "/usr/local/bin:/Library/TeX/texbin/:$PATH" t)
 
@@ -236,6 +238,17 @@ terminal-notifier-command
 ;; (use-package pdf-tools
 ;;   :config
 ;;   (linum-mode -1))
+
+;; Ensure proper PATH for LaTeX tools
+(when (memq window-system '(mac ns x))
+  (exec-path-from-shell-initialize))
+
+;; Set up pdf-tools more carefully
+(use-package pdf-tools
+  :ensure t
+  :config
+  (pdf-tools-install :no-query)
+  (setq-default pdf-view-display-size 'fit-width))
 
 ;; Paul Johnson
 ;; 2015-10-01
@@ -701,8 +714,8 @@ terminal-notifier-command
                 (insert content)))))))
 
 ;; https://github.com/gromnitsky/read-aloud.el
-(load-file "~/GIT/read-aloud.el/read-aloud.el")
-(setq read-aloud-engine "say")
+;; (load-file "~/GIT/read-aloud.el/read-aloud.el")
+;; (setq read-aloud-engine "say")
 
 ;; Attempting to set up lsp-mode
 ;; https://www.youtube.com/watch?v=E-NAM9U5JYE
@@ -760,8 +773,8 @@ terminal-notifier-command
 ;; https://emacs.stackexchange.com/questions/32740/checkboxes-change-bullet-points-to-letters
 (setq org-list-allow-alphabetical t)
 
-;; https://www.louabill.org/Stata/ado-mode_install.html
-(require 'ado-mode)
+;; ;; https://www.louabill.org/Stata/ado-mode_install.html
+;; (require 'ado-mode)
 
 ;; eshell prompt
 (setq eshell-prompt-function
@@ -810,25 +823,25 @@ terminal-notifier-command
        (define-key flyspell-mouse-map [down-mouse-3] #'flyspell-correct-word)
        (define-key flyspell-mouse-map [mouse-3] #'undefined)))
 
-;; ;; auto-revert TeX pdfs
-;; (add-hook 'TeX-after-compilation-finished-functions
-;;           #'TeX-revert-document-buffer)
+;; auto-revert TeX pdfs
+(add-hook 'TeX-after-compilation-finished-functions
+          #'TeX-revert-document-buffer)
 
-;; (add-hook 'LaTeX-mode-hook 'olivetti-mode)
-;; (add-hook 'LaTeX-mode-hook 'latex-extra-mode)
+(add-hook 'LaTeX-mode-hook 'olivetti-mode)
+(add-hook 'LaTeX-mode-hook 'latex-extra-mode)
 
-;; ;; auto-revert
-;; (add-hook 'PDFview-mode-hook #'auto-revert-mode)
+;; auto-revert
+(add-hook 'PDFview-mode-hook #'auto-revert-mode)
 
 ;; ;; smartparens
 ;; (require 'smartparens-config)
 
-;; (add-hook 'LaTeX-mode-hook 'smartparens-mode)
-;; (add-hook 'org-mode-hook 'smartparens-mode)
-;; (add-hook 'python-mode 'smartparens-mode)
-;; (add-hook 'ess-mode 'smartparens-mode)
-;; (add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
-;; (add-hook 'Shell-script 'smartparens-mode)
+(add-hook 'LaTeX-mode-hook 'smartparens-mode)
+(add-hook 'org-mode-hook 'smartparens-mode)
+(add-hook 'python-mode 'smartparens-mode)
+(add-hook 'ess-mode 'smartparens-mode)
+(add-hook 'emacs-lisp-mode-hook 'smartparens-mode)
+(add-hook 'Shell-script 'smartparens-mode)
 
 ;; display-battery
 ;;(require 'display-battery-mode)
@@ -854,268 +867,268 @@ terminal-notifier-command
    ?\{ right return return ?\\ ?e ?n ?d ?\{ ?f ?r ?a ?m ?e tab up
    up right right right right] 0 "%d"))
 
-;; mu4e
-;; initial set-up from https://macowners.club/posts/email-emacs-mu4e-macos/
-(use-package mu4e
-  :load-path "/usr/local/Cellar/mu/1.8.14/share/emacs/site-lisp/mu/mu4e/")
+;; ;; mu4e
+;; ;; initial set-up from https://macowners.club/posts/email-emacs-mu4e-macos/
+;; (use-package mu4e
+;;   :load-path "/usr/local/Cellar/mu/1.8.14/share/emacs/site-lisp/mu/mu4e/")
 
-(setq mail-user-agent 'mu4e-user-agent)
+;; (setq mail-user-agent 'mu4e-user-agent)
 
-;; for sending
-(require 'smtpmail)
+;; ;; for sending
+;; (require 'smtpmail)
 
-;; we installed this with homebrew
-(setq mu4e-mu-binary (executable-find "mu"))
+;; ;; we installed this with homebrew
+;; (setq mu4e-mu-binary (executable-find "mu"))
 
-;; this is the directory we created before:
-(setq mu4e-maildir "~/.maildir")
+;; ;; this is the directory we created before:
+;; (setq mu4e-maildir "~/.maildir")
 
-;; this command is called to sync imap servers:
-(setq mu4e-get-mail-command (concat (executable-find "mbsync") " -a"))
-;; how often to call it in seconds:
-(setq mu4e-update-interval 300)
+;; ;; this command is called to sync imap servers:
+;; (setq mu4e-get-mail-command (concat (executable-find "mbsync") " -a"))
+;; ;; how often to call it in seconds:
+;; (setq mu4e-update-interval 300)
 
-;; save attachment to desktop by default
-;; or another choice of yours:
-(setq mu4e-attachment-dir "~/Downloads")
+;; ;; save attachment to desktop by default
+;; ;; or another choice of yours:
+;; (setq mu4e-attachment-dir "~/Downloads")
 
-;; rename files when moving - needed for mbsync:
-(setq mu4e-change-filenames-when-moving t)
+;; ;; rename files when moving - needed for mbsync:
+;; (setq mu4e-change-filenames-when-moving t)
 
-;; list of your email adresses:
-(setq mu4e-user-mail-address-list '("pgauding09@gmail.com"
-                                    "patrick.gauding@gmail.com"
-				    "pjgaudin@sewanee.edu"))
+;; ;; list of your email adresses:
+;; (setq mu4e-user-mail-address-list '("pgauding09@gmail.com"
+;;                                     "patrick.gauding@gmail.com"
+;; 				    "pjgaudin@sewanee.edu"))
 
-;; check your ~/.maildir to see how the subdirectories are called
-;; for the generic imap account:
-;; e.g `ls ~/.maildir/example'
-(setq  mu4e-maildir-shortcuts
-       '(("/gmail-personal/INBOX" . ?g)
-         ("/gmail-personal/[Gmail]/Sent Mail" . ?G)
-	 ("/gmail-professional/INBOX" . ?p)
-         ("/gmail-professional/[Gmail]/Sent Mail" . ?P)
-	 ("/sewanee/INBOX" . ?s)
-         ("/sewanee/[Gmail]/Sent Mail" . ?S)
-	 ))
-(add-to-list 'mu4e-bookmarks
-	     '( :name "All Inboxes"
-		:query "maildir:/gmail-personal/INBOX or maildir:/gmail-professional/INBOX or maildir:/sewanee/INBOX"
-		:key ?i))
-(add-to-list 'mu4e-bookmarks
-             '( :name "Inbox - Personal"
-		:query "maildir:/gmail-personal/INBOX"
-		:key ?g))
-(add-to-list 'mu4e-bookmarks
-             '( :name "Inbox - Professional"
-		:query "maildir:/gmail-professional/INBOX"
-		:key ?p))
-(add-to-list 'mu4e-bookmarks
-             '( :name "Inbox - Sewanee"
-		:query "maildir:/sewanee/INBOX"
-		:key ?s))
-(setq mu4e-contexts
-      `(,(make-mu4e-context
-          :name "09-Personal"
-          :enter-func
-          (lambda () (mu4e-message "Enter pgauding09@gmail.com context"))
-          :leave-func
-          (lambda () (mu4e-message "Leave pgauding09@gmail.com context"))
-          :match-func
-          (lambda (msg)
-            (when msg
-              (mu4e-message-contact-field-matches msg
-                                                  :to "pgauding09@gmail.com")))
-          :vars '((user-mail-address . "pgauding09@gmail.com")
-                  (user-full-name . "Patrick")
-                  (mu4e-drafts-folder . "/gmail-personal/Drafts")
-                  (mu4e-refile-folder . "/gmail-personal/Archive")
-                  (mu4e-sent-folder . "/gmail-personal/Sent")
-                  (mu4e-trash-folder . "/gmail-personal/Trash")
-		  (mu4e-compose-signature .
-					  (concat
-					   "Patrick\n"))))
+;; ;; check your ~/.maildir to see how the subdirectories are called
+;; ;; for the generic imap account:
+;; ;; e.g `ls ~/.maildir/example'
+;; (setq  mu4e-maildir-shortcuts
+;;        '(("/gmail-personal/INBOX" . ?g)
+;;          ("/gmail-personal/[Gmail]/Sent Mail" . ?G)
+;; 	 ("/gmail-professional/INBOX" . ?p)
+;;          ("/gmail-professional/[Gmail]/Sent Mail" . ?P)
+;; 	 ("/sewanee/INBOX" . ?s)
+;;          ("/sewanee/[Gmail]/Sent Mail" . ?S)
+;; 	 ))
+;; (add-to-list 'mu4e-bookmarks
+;; 	     '( :name "All Inboxes"
+;; 		:query "maildir:/gmail-personal/INBOX or maildir:/gmail-professional/INBOX or maildir:/sewanee/INBOX"
+;; 		:key ?i))
+;; (add-to-list 'mu4e-bookmarks
+;;              '( :name "Inbox - Personal"
+;; 		:query "maildir:/gmail-personal/INBOX"
+;; 		:key ?g))
+;; (add-to-list 'mu4e-bookmarks
+;;              '( :name "Inbox - Professional"
+;; 		:query "maildir:/gmail-professional/INBOX"
+;; 		:key ?p))
+;; (add-to-list 'mu4e-bookmarks
+;;              '( :name "Inbox - Sewanee"
+;; 		:query "maildir:/sewanee/INBOX"
+;; 		:key ?s))
+;; (setq mu4e-contexts
+;;       `(,(make-mu4e-context
+;;           :name "09-Personal"
+;;           :enter-func
+;;           (lambda () (mu4e-message "Enter pgauding09@gmail.com context"))
+;;           :leave-func
+;;           (lambda () (mu4e-message "Leave pgauding09@gmail.com context"))
+;;           :match-func
+;;           (lambda (msg)
+;;             (when msg
+;;               (mu4e-message-contact-field-matches msg
+;;                                                   :to "pgauding09@gmail.com")))
+;;           :vars '((user-mail-address . "pgauding09@gmail.com")
+;;                   (user-full-name . "Patrick")
+;;                   (mu4e-drafts-folder . "/gmail-personal/Drafts")
+;;                   (mu4e-refile-folder . "/gmail-personal/Archive")
+;;                   (mu4e-sent-folder . "/gmail-personal/Sent")
+;;                   (mu4e-trash-folder . "/gmail-personal/Trash")
+;; 		  (mu4e-compose-signature .
+;; 					  (concat
+;; 					   "Patrick\n"))))
 
-	,(make-mu4e-context
-         :name "Professional"
-         :enter-func
-         (lambda () (mu4e-message "Enter patrick.gauding@gmail.com context"))
-         :leave-func
-         (lambda () (mu4e-message "Leave patrick.gauding@gmail.com context"))
-         :match-func
-         (lambda (msg)
-           (when msg
-             (mu4e-message-contact-field-matches msg
-                                                 :to "patrick.gauding@gmail.com")))
-         :vars '((user-mail-address . "patrick.gauding@gmail.com")
-                 (user-full-name . "Patrick J. Gauding")
-                 (mu4e-drafts-folder . "/gmail-professional/Drafts")
-                 (mu4e-refile-folder . "/gmail-professional/Archive")
-                 (mu4e-sent-folder . "/gmail-professional/Sent")
-                 (mu4e-trash-folder . "/gmail-professional/Trash")
-		 (mu4e-compose-signature .
-					  (concat
-					   "Patrick J. Gauding\n"
-					   "216.870.9450\n"
-					   "patrick.gauding@gmail.com"))))
+;; 	,(make-mu4e-context
+;;          :name "Professional"
+;;          :enter-func
+;;          (lambda () (mu4e-message "Enter patrick.gauding@gmail.com context"))
+;;          :leave-func
+;;          (lambda () (mu4e-message "Leave patrick.gauding@gmail.com context"))
+;;          :match-func
+;;          (lambda (msg)
+;;            (when msg
+;;              (mu4e-message-contact-field-matches msg
+;;                                                  :to "patrick.gauding@gmail.com")))
+;;          :vars '((user-mail-address . "patrick.gauding@gmail.com")
+;;                  (user-full-name . "Patrick J. Gauding")
+;;                  (mu4e-drafts-folder . "/gmail-professional/Drafts")
+;;                  (mu4e-refile-folder . "/gmail-professional/Archive")
+;;                  (mu4e-sent-folder . "/gmail-professional/Sent")
+;;                  (mu4e-trash-folder . "/gmail-professional/Trash")
+;; 		 (mu4e-compose-signature .
+;; 					  (concat
+;; 					   "Patrick J. Gauding\n"
+;; 					   "216.870.9450\n"
+;; 					   "patrick.gauding@gmail.com"))))
 
-	,(make-mu4e-context
-         :name "Sewanee"
-         :enter-func
-         (lambda () (mu4e-message "Enter pjgaudin@sewanee.edu context"))
-         :leave-func
-         (lambda () (mu4e-message "Leave pjgaudin@sewanee.edu context"))
-         :match-func
-         (lambda (msg)
-           (when msg
-             (mu4e-message-contact-field-matches msg
-                                                 :to "pjgaudin@sewanee.edu")))
-         :vars '((user-mail-address . "pjgaudin@sewanee.edu")
-                 (user-full-name . "Patrick J. Gauding")
-                 (mu4e-drafts-folder . "/sewanee/Drafts")
-                 (mu4e-refile-folder . "/sewanee/Archive")
-                 (mu4e-sent-folder . "/sewanee/Sent")
-                 (mu4e-trash-folder . "/sewanee/Trash")
-		 (mu4e-compose-signature .
-					 (concat
-					  "Patrick J. Gauding, PhD\n"
-					  "Visiting Assistant Professor\n"
-					  "Department of Politics\n"
-					  "University of the South\n"
-					  "Carnegie Hall Rm. 318\n"
-					  "735 University Ave.\n"
-					  "Sewanee, TN 37383\n"
-					  "patrick.gauding@sewanee.edu"))))
-	))
+;; 	,(make-mu4e-context
+;;          :name "Sewanee"
+;;          :enter-func
+;;          (lambda () (mu4e-message "Enter pjgaudin@sewanee.edu context"))
+;;          :leave-func
+;;          (lambda () (mu4e-message "Leave pjgaudin@sewanee.edu context"))
+;;          :match-func
+;;          (lambda (msg)
+;;            (when msg
+;;              (mu4e-message-contact-field-matches msg
+;;                                                  :to "pjgaudin@sewanee.edu")))
+;;          :vars '((user-mail-address . "pjgaudin@sewanee.edu")
+;;                  (user-full-name . "Patrick J. Gauding")
+;;                  (mu4e-drafts-folder . "/sewanee/Drafts")
+;;                  (mu4e-refile-folder . "/sewanee/Archive")
+;;                  (mu4e-sent-folder . "/sewanee/Sent")
+;;                  (mu4e-trash-folder . "/sewanee/Trash")
+;; 		 (mu4e-compose-signature .
+;; 					 (concat
+;; 					  "Patrick J. Gauding, PhD\n"
+;; 					  "Visiting Assistant Professor\n"
+;; 					  "Department of Politics\n"
+;; 					  "University of the South\n"
+;; 					  "Carnegie Hall Rm. 318\n"
+;; 					  "735 University Ave.\n"
+;; 					  "Sewanee, TN 37383\n"
+;; 					  "patrick.gauding@sewanee.edu"))))
+;; 	))
 
-(setq mu4e-context-policy 'pick-first) ;; start with the first (default) context;
-(setq mu4e-compose-context-policy 'ask) ;; ask for context if no context matches;
+;; (setq mu4e-context-policy 'pick-first) ;; start with the first (default) context;
+;; (setq mu4e-compose-context-policy 'ask) ;; ask for context if no context matches;
 
-;; gpg encryptiom & decryption:
-;; this can be left alone
-(require 'epa-file)
-(epa-file-enable)
-(setq epa-pinentry-mode 'loopback)
-(auth-source-forget-all-cached)
+;; ;; gpg encryptiom & decryption:
+;; ;; this can be left alone
+;; (require 'epa-file)
+;; (epa-file-enable)
+;; (setq epa-pinentry-mode 'loopback)
+;; (auth-source-forget-all-cached)
 
-;; don't keep message compose buffers around after sending:
-(setq message-kill-buffer-on-exit t)
+;; ;; don't keep message compose buffers around after sending:
+;; (setq message-kill-buffer-on-exit t)
 
-;; send function:
-(setq send-mail-function 'sendmail-send-it
-      message-send-mail-function 'sendmail-send-it)
+;; ;; send function:
+;; (setq send-mail-function 'sendmail-send-it
+;;       message-send-mail-function 'sendmail-send-it)
 
-;; send program:
-;; this is exeranal. remember we installed it before.
-(setq sendmail-program (executable-find "msmtp"))
+;; ;; send program:
+;; ;; this is exeranal. remember we installed it before.
+;; (setq sendmail-program (executable-find "msmtp"))
 
-;; select the right sender email from the context.
-(setq message-sendmail-envelope-from 'header)
+;; ;; select the right sender email from the context.
+;; (setq message-sendmail-envelope-from 'header)
 
-;; chose from account before sending
-;; this is a custom function that works for me.
-;; well I stole it somewhere long ago.
-;; I suggest using it to make matters easy
-;; of course adjust the email adresses and account descriptions
-;; (defun timu/set-msmtp-account ()
-;;   (if (message-mail-p)
-;;       (save-excursion
-;;         (let*
-;;             ((from (save-restriction
-;;                      (message-narrow-to-headers)
-;;                      (message-fetch-field "from")))
-;;              (account
-;;               (cond
-;;                ((string-match "pgauding09@gmail.com" from) "09-Personal")
-;;                ((string-match "patrick.gauding@gmail.com" from) "Professional")
-;;                ((string-match "pjgaudin@sewanee.edu" from) "Sewanee")
-;; 	       )))
-;;           (setq message-sendmail-extra-arguments (list '"-a" account))))))
+;; ;; chose from account before sending
+;; ;; this is a custom function that works for me.
+;; ;; well I stole it somewhere long ago.
+;; ;; I suggest using it to make matters easy
+;; ;; of course adjust the email adresses and account descriptions
+;; ;; (defun timu/set-msmtp-account ()
+;; ;;   (if (message-mail-p)
+;; ;;       (save-excursion
+;; ;;         (let*
+;; ;;             ((from (save-restriction
+;; ;;                      (message-narrow-to-headers)
+;; ;;                      (message-fetch-field "from")))
+;; ;;              (account
+;; ;;               (cond
+;; ;;                ((string-match "pgauding09@gmail.com" from) "09-Personal")
+;; ;;                ((string-match "patrick.gauding@gmail.com" from) "Professional")
+;; ;;                ((string-match "pjgaudin@sewanee.edu" from) "Sewanee")
+;; ;; 	       )))
+;; ;;           (setq message-sendmail-extra-arguments (list '"-a" account))))))
 
-;; (add-hook 'message-send-mail-hook 'timu/set-msmtp-account)
+;; ;; (add-hook 'message-send-mail-hook 'timu/set-msmtp-account)
 
-;; (defun my-mu4e-set-account ()
-;;   "Set the account for composing a message."
-;;   (if mu4e-compose-parent-message
-;;       (let ((mail (cdr (car (mu4e-message-field mu4e-compose-parent-message :to)))))
-;;     (if (member mail mu4e-user-mail-address-list)
-;;         (setq user-mail-address mail)
-;;       (setq user-mail-address "patrick.gauding@gmail.com")))
-;;     (helm :sources
-;;       `((name . "Select account: ")
-;;         (candidates . mu4e-user-mail-address-list)
-;;         (action . (lambda (candidate) (setq user-mail-address candidate)))))))
+;; ;; (defun my-mu4e-set-account ()
+;; ;;   "Set the account for composing a message."
+;; ;;   (if mu4e-compose-parent-message
+;; ;;       (let ((mail (cdr (car (mu4e-message-field mu4e-compose-parent-message :to)))))
+;; ;;     (if (member mail mu4e-user-mail-address-list)
+;; ;;         (setq user-mail-address mail)
+;; ;;       (setq user-mail-address "patrick.gauding@gmail.com")))
+;; ;;     (helm :sources
+;; ;;       `((name . "Select account: ")
+;; ;;         (candidates . mu4e-user-mail-address-list)
+;; ;;         (action . (lambda (candidate) (setq user-mail-address candidate)))))))
 
-;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+;; ;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
 
-;; mu4e cc & bcc
-;; this is custom as well
-(add-hook 'mu4e-compose-mode-hook
-          (defun timu/add-cc-and-bcc ()
-            "My Function to automatically add Cc & Bcc: headers.
-    This is in the mu4e compose mode."
-            (save-excursion (message-add-header "Cc:\n"))
-            (save-excursion (message-add-header "Bcc:\n"))))
+;; ;; mu4e cc & bcc
+;; ;; this is custom as well
+;; (add-hook 'mu4e-compose-mode-hook
+;;           (defun timu/add-cc-and-bcc ()
+;;             "My Function to automatically add Cc & Bcc: headers.
+;;     This is in the mu4e compose mode."
+;;             (save-excursion (message-add-header "Cc:\n"))
+;;             (save-excursion (message-add-header "Bcc:\n"))))
 
-;; mu4e address completion
-(add-hook 'mu4e-compose-mode-hook 'company-mode)
+;; ;; mu4e address completion
+;; (add-hook 'mu4e-compose-mode-hook 'company-mode)
 
-;; store link to message if in header view, not to header query:
-(setq org-mu4e-link-query-in-headers-mode nil)
-;; don't have to confirm when quitting:
-(setq mu4e-confirm-quit nil)
-;; number of visible headers in horizontal split view:
-(setq mu4e-headers-visible-lines 20)
-;; don't show threading by default:
-(setq mu4e-headers-show-threads nil)
-;; hide annoying "mu4e Retrieving mail..." msg in mini buffer:
-(setq mu4e-hide-index-messages t)
-;; customize the reply-quote-string:
-(setq message-citation-line-format "%N @ %Y-%m-%d %H:%M :\n")
-;; M-x find-function RET message-citation-line-format for docs:
-(setq message-citation-line-function 'message-insert-formatted-citation-line)
-;; by default do not show related emails:
-(setq mu4e-headers-include-related nil)
-;; by default do not show threads:
-(setq mu4e-headers-show-threads nil)
+;; ;; store link to message if in header view, not to header query:
+;; (setq org-mu4e-link-query-in-headers-mode nil)
+;; ;; don't have to confirm when quitting:
+;; (setq mu4e-confirm-quit nil)
+;; ;; number of visible headers in horizontal split view:
+;; (setq mu4e-headers-visible-lines 20)
+;; ;; don't show threading by default:
+;; (setq mu4e-headers-show-threads nil)
+;; ;; hide annoying "mu4e Retrieving mail..." msg in mini buffer:
+;; (setq mu4e-hide-index-messages t)
+;; ;; customize the reply-quote-string:
+;; (setq message-citation-line-format "%N @ %Y-%m-%d %H:%M :\n")
+;; ;; M-x find-function RET message-citation-line-format for docs:
+;; (setq message-citation-line-function 'message-insert-formatted-citation-line)
+;; ;; by default do not show related emails:
+;; (setq mu4e-headers-include-related nil)
+;; ;; by default do not show threads:
+;; (setq mu4e-headers-show-threads nil)
 
-;; annoying ls-dired thing
-;; https://stackoverflow.com/questions/4076360/error-in-dired-sorting-on-os-x
-(when (equal system-type 'darwin)
-  (setq insert-directory-program "/usr/local/opt/coreutils/libexec/gnubin/ls"))
+;; ;; annoying ls-dired thing
+;; ;; https://stackoverflow.com/questons/4076360/error-in-dired-sorting-on-os-x
+;; (when (equal system-type 'darwin)
+;;   (setq insert-directory-program "/usr/local/opt/coreutils/libexec/gnubin/ls"))
 
-;; Outlook display issue
-(setq  message-citation-line-format "On %Y-%m-%d at %R %Z, %f wrote...")
+;; ;; Outlook display issue
+;; (setq  message-citation-line-format "On %Y-%m-%d at %R %Z, %f wrote...")
 
-;; https://www.djcbsoftware.nl/code/mu/mu4e/Compose-hooks.html
-;; 1) messages to me@foo.example.com should be replied with From:me@foo.example.com
-;; 2) messages to me@bar.example.com should be replied with From:me@bar.example.com
-;; 3) all other mail should use From:me@cuux.example.com
-;; (add-hook 'mu4e-compose-pre-hook
-;;   (defun my-set-from-address ()
-;;     "Set the From address based on the To address of the original."
-;;     (let ((msg mu4e-compose-parent-message)) ;; msg is shorter...
-;;       (when msg
-;;         (setq user-mail-address
-;;           (cond
-;;             ((mu4e-message-contact-field-matches msg :to "patrick.gauding@gmail.com")
-;;               "patrick.gauding@gmail.com")
-;;             ((mu4e-message-contact-field-matches msg :to "pjgaudin@sewanee.edu")
-;;              "pjgaudin@sewanee.edu")
-;;             (t "pgauding09@gmail.com")))))))
+;; ;; https://www.djcbsoftware.nl/code/mu/mu4e/Compose-hooks.html
+;; ;; 1) messages to me@foo.example.com should be replied with From:me@foo.example.com
+;; ;; 2) messages to me@bar.example.com should be replied with From:me@bar.example.com
+;; ;; 3) all other mail should use From:me@cuux.example.com
+;; ;; (add-hook 'mu4e-compose-pre-hook
+;; ;;   (defun my-set-from-address ()
+;; ;;     "Set the From address based on the To address of the original."
+;; ;;     (let ((msg mu4e-compose-parent-message)) ;; msg is shorter...
+;; ;;       (when msg
+;; ;;         (setq user-mail-address
+;; ;;           (cond
+;; ;;             ((mu4e-message-contact-field-matches msg :to "patrick.gauding@gmail.com")
+;; ;;               "patrick.gauding@gmail.com")
+;; ;;             ((mu4e-message-contact-field-matches msg :to "pjgaudin@sewanee.edu")
+;; ;;              "pjgaudin@sewanee.edu")
+;; ;;             (t "pgauding09@gmail.com")))))))
 
-;; https://www.djcbsoftware.nl/code/mu/mu4e/Other-settings.html
-(setq mu4e-compose-dont-reply-to-self t)
+;; ;; https://www.djcbsoftware.nl/code/mu/mu4e/Other-settings.html
+;; (setq mu4e-compose-dont-reply-to-self t)
 
-;; attempt to show images when viewing messages
-(setq mu4e-view-show-images t)
+;; ;; attempt to show images when viewing messages
+;; (setq mu4e-view-show-images t)
 
-;; Make sure that emails don't look weird for non-plain text folks
-;; (setq mu4e-compose-format-flowed t)
+;; ;; Make sure that emails don't look weird for non-plain text folks
+;; ;; (setq mu4e-compose-format-flowed t)
 
-(use-package mu4e-column-faces
-  :after mu4e
-  :config (mu4e-column-faces-mode))
+;; (use-package mu4e-column-faces
+;;   :after mu4e
+;;   :config (mu4e-column-faces-mode))
 
 ;; Experimental stuff
 
@@ -1144,13 +1157,13 @@ terminal-notifier-command
           (t
            (call-interactively 'org-insert-link)))))
 
-(use-package procress
-;;  :straight (:host github :repo "haji-ali/procress")
-  :commands tex-procress-mode
-  :init
-  (add-hook 'LaTeX-mode-hook 'tex-procress-mode)
-  :config
-  (procress-load-default-svg-images))
+;; (use-package procress
+;; ;;  :straight (:host github :repo "haji-ali/procress")
+;;   :commands tex-procress-mode
+;;   :init
+;;   (add-hook 'LaTeX-mode-hook 'tex-procress-mode)
+;;   :config
+;;   (procress-load-default-svg-images))
 
-(setq org-odt-preferred-output-format "doc")
+;; (setq org-odt-preferred-output-format "doc")
 
